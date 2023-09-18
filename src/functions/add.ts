@@ -8,10 +8,10 @@ function addElement<T>(dll: DLL<T>, element: T, compare?: CompareFunction<T>, fr
     const target =
         (compare ? findNextGte(from || dll.head, element, compare) : dll.tail) ?? dll.tail;
 
-    return target === dll.head && target !== dll.tail
-        ? (dll.head = attachPrev(target, element))
-        : target === dll.tail
+    return target === dll.tail
         ? (dll.tail = attachNext(target, element))
+        : target === dll.head
+        ? (dll.head = attachPrev(target, element))
         : attachPrev(target, element);
 }
 

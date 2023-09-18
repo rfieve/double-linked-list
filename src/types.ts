@@ -23,6 +23,14 @@ export type DLLNode<T> = {
     [Direction.Prev]? : DLLNode<T>;
 };
 
+export type DLLNodeWithPrev<T> = Omit<DLLNode<T>, Direction.Prev> & {
+    [Direction.Prev] : DLLNode<T>;
+};
+
+export type DLLNodeWithNext<T> = Omit<DLLNode<T>, Direction.Next> & {
+    [Direction.Next] : DLLNode<T>;
+};
+
 export type DLL<T> = {
     head   : Omit<DLLNode<T>, Direction.Prev>;
     length : number;

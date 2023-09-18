@@ -4,7 +4,7 @@ import { compare, mockedOrderedList } from './_mocks';
 describe('findLte', () => {
     const bound = makeFindLte(compare);
 
-    it('should include all the next lesser nodes', () => {
+    it('should include all the lesser nodes', () => {
         const nodes = bound(mockedOrderedList, 12);
 
         expect(nodes[0]?.data).toEqual(2);

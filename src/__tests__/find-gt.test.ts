@@ -4,7 +4,7 @@ import { compare, mockedOrderedList } from './_mocks';
 describe('findGt', () => {
     const bound = makeFindGt(compare);
 
-    it('should include all the next greater nodes', () => {
+    it('should include all the greater nodes', () => {
         const nodes = bound(mockedOrderedList, 12);
 
         expect(nodes[0]?.data).toEqual(13);

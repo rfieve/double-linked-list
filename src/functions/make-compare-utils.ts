@@ -9,7 +9,7 @@ import { makeFindOne } from './find-one';
 import { makeToDLL } from './to-dll';
 
 /**
- * With the given compare function, creates all bound functions to work with a double linked list made with the same compare.
+ * With the given compare function, creates all bound functions to work with a doubly linked list made with the same compare.
  * @param compare The compare function.
  * @returns The bound functions.
  */

@@ -2,10 +2,10 @@ import { CompareFunction, DLL } from '../types';
 import { add } from './add';
 
 /**
- * Converts the given array to a double linked list, depending on a given compare function.
+ * Converts the given array to a doubly linked list, depending on a given compare function.
  * @param elements The source array.
  * @param compare The compare function.
- * @returns The elements of the elements array organized as a double linked list.
+ * @returns The elements of the elements array organized as a doubly linked list.
  */
 export function toDLL<T>(elements: T[], compare?: CompareFunction<T>): DLL<T> {
     const copied = elements.slice();

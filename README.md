@@ -1,10 +1,10 @@
-# ✌️🔗📝 double-linked-list
+# ✌️🔗📝 doubly-linked-list
 
-A zero-dependency TypeScript library to work with double linked lists and arrays of any types.
+A zero-dependency TypeScript library to work with doubly linked lists and arrays of any types.
 
 ## Table of Content
 
--   [✌️🔗📝 double-linked-list](#️-double-linked-list)
+-   [✌️🔗📝 doubly-linked-list](#️-doubly-linked-list)
     -   [Table of Content](#table-of-content)
     -   [Installation](#installation)
     -   [Usage](#usage)
@@ -13,13 +13,13 @@ A zero-dependency TypeScript library to work with double linked lists and arrays
 ## Installation
 
 ```sh
-yarn add @romainfieve/double-linked-list
+yarn add @romainfieve/doubly-linked-list
 ```
 
 or
 
 ```sh
-npm install @romainfieve/double-linked-list
+npm install @romainfieve/doubly-linked-list
 ```
 
 ## Usage

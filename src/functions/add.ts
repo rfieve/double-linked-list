@@ -26,12 +26,12 @@ function addElements<T>(dll: DLL<T>, elements: T[], compare?: CompareFunction<T>
 }
 
 /**
- * Adds the given elements to the given double linked list.
+ * Adds the given elements to the given doubly linked list.
  * and returns a new dll, without modifing the original dll in place.
- * @param dll The source double linked list.
+ * @param dll The source doubly linked list.
  * @param elements The nodes to be added.
  * @param compare The compare function.
- * @returns The new double linked list.
+ * @returns The new doubly linked list.
  */
 export function add<T>(dll: DLL<T>, elements: T | T[], compare?: CompareFunction<T>): DLL<T> {
     if (Array.isArray(elements)) {
@@ -44,7 +44,7 @@ export function add<T>(dll: DLL<T>, elements: T | T[], compare?: CompareFunction
 }
 
 /**
- * Creates an add function for the given double linked list with the given compare function.
+ * Creates an add function for the given doubly linked list with the given compare function.
  * @param compare The compare function.
  * @returns The bound add function.
  */

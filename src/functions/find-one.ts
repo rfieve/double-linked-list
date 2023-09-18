@@ -2,8 +2,8 @@ import { CompareFunction, DLL, DLLNode } from '../types';
 import { hasNext } from './has-next';
 
 /**
- * Finds a given element into the given double linked list with the given compare function.
- * @param dll The source double linked list.
+ * Finds a given element into the given doubly linked list with the given compare function.
+ * @param dll The source doubly linked list.
  * @param compare The compare function.
  * @param element The element to be found.
  * @returns The found result.
@@ -26,7 +26,7 @@ export function findOne<T>(
 }
 
 /**
- * Creates a find function for the given double linked list with the given compare function.
+ * Creates a find function for the given doubly linked list with the given compare function.
  * @param compare The compare function.
  * @returns The bound find function.
  */

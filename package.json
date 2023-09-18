@@ -1,5 +1,5 @@
 {
-    "name": "@romainfieve/double-linked-list",
+    "name": "@romainfieve/doubly-linked-list",
     "version": "0.0.0",
     "description": "",
     "main": "dist/index.js",
@@ -16,16 +16,16 @@
     "license": "MIT",
     "keywords": [
         "typescript",
-        "double-linked-list",
+        "doubly-linked-list",
         "utility"
     ],
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/rfieve/double-linked-list.git"
+        "url": "git+https://github.com/rfieve/doubly-linked-list.git"
     },
-    "homepage": "https://github.com/rfieve/double-linked-list#readme",
+    "homepage": "https://github.com/rfieve/doubly-linked-list#readme",
     "bugs": {
-        "url": "https://github.com/rfieve/double-linked-list/issues"
+        "url": "https://github.com/rfieve/doubly-linked-list/issues"
     },
     "devDependencies": {
         "@jest/types": "^29.6.3",

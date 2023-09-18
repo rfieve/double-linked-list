@@ -1,5 +1,5 @@
-import { toDLL } from 'src/functions/to-dll';
-import { DLL } from 'src/types';
+import { toDLL } from '../functions/to-dll';
+import { DLL } from '../types';
 
 export function compare(a: number, b: number) {
     return a - b;

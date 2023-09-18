@@ -1,4 +1,4 @@
-import { Direction, DLLNode } from 'src/types';
+import { Direction, DLLNode } from '../types';
 
 /**
  * Traverses the list from a specific node in the specified direction,

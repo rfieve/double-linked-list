@@ -1,5 +1,4 @@
-import { makeCompareUtils } from 'src/functions/make-compare-utils';
-
+import { makeCompareUtils } from '../functions/make-compare-utils';
 import { mockedOrderedList } from './_mocks';
 
 describe('findMany', () => {

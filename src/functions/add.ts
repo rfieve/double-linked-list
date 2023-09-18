@@ -26,8 +26,7 @@ function addElements<T>(dll: DLL<T>, elements: T[], compare?: CompareFunction<T>
 }
 
 /**
- * Adds the given elements to the given doubly linked list.
- * and returns a new dll, without modifing the original dll in place.
+ * Adds the given elements to the given doubly linked list in place.
  * @param dll The source doubly linked list.
  * @param elements The nodes to be added.
  * @param compare The compare function.

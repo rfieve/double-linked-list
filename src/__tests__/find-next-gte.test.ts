@@ -7,12 +7,12 @@ describe('findNextGte', () => {
         expect(node?.data).toEqual(13);
     });
 
-    it('should return the next equal node', () => {
+    it('should return the next equivalent node', () => {
         const node = findNextGte(mockedOrderedList.head, 13, compare);
         expect(node?.data).toEqual(13);
     });
 
-    it('should return undefined when no node matcheds', () => {
+    it('should return undefined when no node matches', () => {
         const node = findNextGte(mockedOrderedList.head, 100, compare);
         expect(node?.data).toBeUndefined();
     });

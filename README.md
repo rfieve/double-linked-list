@@ -174,7 +174,7 @@ Traverses a doubly linked list, invoking the callback function on each visited n
 // 2 <-> 5 <-> 10 <-> 13 <-> 32 <-> 50 <-> 89
 
 const collect = (collection: number[]) => (node: { data: number[] }) => {
-    node.data.forEach((e) => collection.push(e));
+    collection.push(node.data);
 };
 
 const elements = [];

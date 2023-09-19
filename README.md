@@ -10,6 +10,7 @@ A zero-dependency TypeScript library to work with doubly linked lists and arrays
     -   [Usage](#usage)
     -   [Documentation](#documentation)
         -   [`toDLL`](#todll)
+        -   [`add`](#add)
         -   [`hasPrev`, `hasNext`](#hasprev-hasnext)
 
 ## Installation
@@ -80,6 +81,32 @@ const list = toDLL(arr, compare);
 const unorderedList = toDLL(arr);
 // Schema of "unorderedList"
 // 10 <-> 32 <-> 13 <-> 2 <-> 89 <-> 5 <-> 50
+```
+
+---
+
+### `add`
+
+Adds a (or list of) given node(s) to the given doubly linked list (in place) with the given compare function and returns the list.
+
+> :warning: Using another compare function than the one used to create the list with `toDLL` will of course f\*\*k up the sorting. A safer approach consists of using `makeAdd`. It curries an `add` closure function with the given compare function.
+
+```typescript
+const modifiedList = add(list, 11, compare);
+const reModifiedList = add(modifiedList, [1, 100], compare);
+//or
+const safeAdd = makeAdd(compare);
+const modifiedList = safeAdd(list, 11);
+const reModifiedList = safeAdd(modifiedList, [1, 100]);
+
+// Schema of "list"
+// 2 <-> 5 <-> 10 <-> 13 <-> 32 <-> 50 <-> 89
+//
+// Schema of "modifiedList"
+// 2 <-> 5 <-> 10 <-> 11 <-> 13 <-> 32 <-> 50 <-> 89
+//
+// Schema of "reModifiedList"
+// 1 <-> 2 <-> 5 <-> 10 <-> 13 <-> 32 <-> 50 <-> 89 <-> 100
 ```
 
 ---

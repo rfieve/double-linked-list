@@ -19,6 +19,7 @@ import {
     traverseInOrder as traverseListInOrder,
     traverseInOrderReverse as traverseListInOrderReverse,
 } from '../functions/traverse-in-order';
+import { unshift as unshiftNode } from '../functions/unshift';
 import { CompareFunction, Direction, DLL, DLLNode } from '../types';
 
 export class DoublyLinkedList<T> {
@@ -38,6 +39,11 @@ export class DoublyLinkedList<T> {
     // Updates
     public readonly push = (elements: T | T[]) => {
         this.l = pushNode(this.l, elements);
+        return this;
+    };
+
+    public readonly unshift = (elements: T | T[]) => {
+        this.l = unshiftNode(this.l, elements);
         return this;
     };
 

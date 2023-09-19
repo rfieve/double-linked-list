@@ -10,7 +10,7 @@ A zero-dependency TypeScript library to work with doubly linked lists and arrays
     -   [Usage](#usage)
     -   [Documentation](#documentation)
         -   [`toDLL`](#todll)
-        -   [`insert`, `push`](#insert-push)
+        -   [`unshift`, `insert`, `push`](#unshift-insert-push)
         -   [`remove`](#remove)
         -   [`findOne`, `findMany`](#findone-findmany)
         -   [`find(Gt/Gte/Lt/Lte)`](#findgtgteltlte)
@@ -93,36 +93,28 @@ const unorderedList = toDLL(arr);
 
 ---
 
-### `insert`, `push`
+### `unshift`, `insert`, `push`
 
 Inserts a (or list of) given node(s) to the given doubly linked list (in place) and returns the list.
 
--   with the given compare function (`insert`),
--   or at the tail (`push`).
+-   with the given compare function (`insert`)
+-   at the head (`unshift`)
+-   at the tail (`push`)
 
-> :warning: Using another compare function than the one used to create the list with `toDLL` or using `push` will of course f\*\*k up the sorting. A safer approach consists of using `makeInsert`. It curries an `insert` closure function with the given compare function.
+> :warning: Using another compare function than the one used to create the list with `toDLL` or using `push`/`unshift` will of course f\*\*k up the sorting. A safer approach consists of using `makeInsert`. It curries an `insert` closure function with the given compare function.
 
 ```typescript
-const modifiedList = insert(list, 11, compare);
-const reModifiedList = insert(modifiedList, [1, 100], compare);
-//or
-const safeInsert = makeInsert(compare);
-const modifiedList = safeInsert(list, 11);
-const reModifiedList = safeInsert(modifiedList, [1, 100]);
-
-const reReModifiedList = push(modifiedList, [3, 17]);
-
 // Schema of "list"
 // 2 <-> 5 <-> 10 <-> 13 <-> 32 <-> 50 <-> 89
-//
-// Schema of "modifiedList"
-// 2 <-> 5 <-> 10 <-> 11 <-> 13 <-> 32 <-> 50 <-> 89
-//
-// Schema of "reModifiedList"
-// 1 <-> 2 <-> 5 <-> 10 <-> 13 <-> 32 <-> 50 <-> 89 <-> 100
 
-// Schema of "reReModifiedList"
+const a = insert(list, 11, compare);
+// 2 <-> 5 <-> 10 <-> 11 <-> 13 <-> 32 <-> 50 <-> 89
+const b = insert(list, [1, 100], compare);
+// 1 <-> 2 <-> 5 <-> 10 <-> 13 <-> 32 <-> 50 <-> 89 <-> 100
+const c = push(list, [3, 17]);
 // 1 <-> 2 <-> 5 <-> 10 <-> 13 <-> 32 <-> 50 <-> 89 <-> 100 <-> 3 <-> 17
+const d = unshift(list, 7);
+// 7 <-> 1 <-> 2 <-> 5 <-> 10 <-> 13 <-> 32 <-> 50 <-> 89 <-> 100 <-> 3 <-> 17
 ```
 
 ---
@@ -132,20 +124,12 @@ const reReModifiedList = push(modifiedList, [3, 17]);
 Removes a (or list of) given node(s) from the given doubly linked list (in place) with the given compare function and returns the list.
 
 ```typescript
-const modifiedList = remove(list, 13, compare);
-const reModifiedList = remove(modifiedList, [2, 89], compare);
-//or
-const safeInsert = makeInsert(compare);
-const modifiedList = safeInsert(list, 13);
-const reModifiedList = safeInsert(modifiedList, [2, 89]);
-
 // Schema of "list"
 // 2 <-> 5 <-> 10 <-> 13 <-> 32 <-> 50 <-> 89
-//
-// Schema of "modifiedList"
+
+const a = remove(list, 13, compare);
 // 2 <-> 5 <-> 10 <-> 32 <-> 50 <-> 89
-//
-// Schema of "reModifiedList"
+const b = remove(list, [2, 89], compare);
 // 5 <-> 10 <-> 32 <-> 50
 ```
 

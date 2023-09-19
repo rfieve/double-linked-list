@@ -13,6 +13,8 @@ A zero-dependency TypeScript library to work with doubly linked lists and arrays
         -   [`add`](#add)
         -   [`findOne`, `findMany`](#findone-findmany)
         -   [`find(Gt/Gte/Lt/Lte)`](#findgtgteltlte)
+        -   [`traverse`](#traverse)
+        -   [`toArray`](#toarray)
         -   [`hasPrev`, `hasNext`](#hasprev-hasnext)
         -   [`makeCompareUtils`](#makecompareutils)
 
@@ -159,6 +161,53 @@ const results = findGte(list, compare, 13).map(({ data }) => data);
 
 ---
 
+### `traverse`
+
+Traverses a doubly linked list, invoking the callback function on each visited node:
+
+-   `traverseFrom`
+-   `traverseInOrder`
+-   `traverseInReverse`
+
+```typescript
+// Schema of "list"
+// 2 <-> 5 <-> 10 <-> 13 <-> 32 <-> 50 <-> 89
+
+const collect = (collection: number[]) => (node: { data: number[] }) => {
+    node.data.forEach((e) => collection.push(e));
+};
+
+const elements = [];
+
+traverseFrom(list.head, 'next', collect(elements));
+// elements: [2, 5, 10, 13, 32, 50, 89]
+traverseInOrder(list, collect(elements));
+// elements: [2, 5, 10, 13, 32, 50, 89]
+traverseInReverse(list, collect(elements));
+// elements: [89, 50, 32, 13, 10, 5, 2]
+```
+
+---
+
+### `toArray`
+
+Converts the given doubly linked list to an array sorted as traversed:
+
+-   `toArrayInOrder`
+-   `toArrayInReverse`
+
+```typescript
+// Schema of "list"
+// 2 <-> 5 <-> 10 <-> 13 <-> 32 <-> 50 <-> 89
+
+const a = toArrayInOrder(list);
+// [2, 5, 10, 13, 32, 50, 89]
+const b = toArrayInReverse(list);
+// [89, 50, 32, 13, 10, 5, 2]
+```
+
+---
+
 ### `hasPrev`, `hasNext`
 
 Assesses if the given node has a prev node (`hasPrev`) or a next node (`hasNext`).
@@ -212,7 +261,7 @@ const updatedList = pipe(
     (t) => addAlpha(t, { name: 'Yoda' }),
     (t) => removeAlpha(t, { name: 'Anakin' }),
     (t) => findGteAlpha({ name: 'Yoda' })
-)(tree); // [{ data: 'Yoda' }]
+)(list); // [{ data: 'Yoda' }]
 ```
 
 ---

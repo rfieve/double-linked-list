@@ -9,6 +9,7 @@ A zero-dependency TypeScript library to work with doubly linked lists and arrays
     -   [Installation](#installation)
     -   [Usage](#usage)
     -   [Documentation](#documentation)
+        -   [`hasPrev`, `hasNext`](#hasprev-hasnext)
 
 ## Installation
 
@@ -25,3 +26,20 @@ npm install @romainfieve/doubly-linked-list
 ## Usage
 
 ## Documentation
+
+### `hasPrev`, `hasNext`
+
+Assesses if the given node has a prev node (`hasPrev`) or a next node (`hasNext`).
+
+```typescript
+// Schema of "list"
+// 2 <-> 5 <-> 10 <-> 13 <-> 32 <-> 50 <-> 89
+
+const hasPrevA = hasPrev(list.tail); // true
+const hasPrevB = hasPrev(list.head); // false
+
+const hasNextA = hasNext(list.head); // true
+const hasNextB = hasNext(list.tail); // false
+```
+
+---

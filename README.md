@@ -9,6 +9,7 @@ A zero-dependency TypeScript library to work with doubly linked lists and arrays
     -   [Installation](#installation)
     -   [Usage](#usage)
     -   [Documentation](#documentation)
+        -   [`toDLL`](#todll)
         -   [`hasPrev`, `hasNext`](#hasprev-hasnext)
 
 ## Installation
@@ -63,6 +64,25 @@ const grogu = findOneAlpha(updatedList, { name: 'Grogu' }); // { data: 'Grogu', 
 ```
 
 ## Documentation
+
+### `toDLL`
+
+Converts the given array to a doubly linked list (`toDLL`), depending on a given compare function if provided.
+
+```typescript
+const arr = [10, 32, 13, 2, 89, 5, 50];
+const compare = (a: number, b: number) => a - b;
+
+const list = toDLL(arr, compare);
+// Schema of "list"
+// 2 <-> 5 <-> 10 <-> 13 <-> 32 <-> 50 <-> 89
+
+const unorderedList = toDLL(arr);
+// Schema of "unorderedList"
+// 10 <-> 32 <-> 13 <-> 2 <-> 89 <-> 5 <-> 50
+```
+
+---
 
 ### `hasPrev`, `hasNext`
 

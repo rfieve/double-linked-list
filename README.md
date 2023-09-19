@@ -25,6 +25,43 @@ npm install @romainfieve/doubly-linked-list
 
 ## Usage
 
+```typescript
+type Hero = { name: string };
+
+const compareAlpha = (a: Hero, b: Hero) => a.name.localeCompare(b.name);
+
+const addAlpha = makeAdd(compareAlpha);
+const removeAlpha = makeRemove(compareAlpha);
+const findOneAlpha = makeFindOne(compareAlpha);
+
+const heroes: Hero[] = [
+    { name: 'Han' },
+    { name: 'Anakin' },
+    { name: 'Leia' },
+    { name: 'Luke' },
+    { name: 'Padme' },
+    { name: 'Lando' },
+    { name: 'Chewie' },
+];
+
+const list = toDll(heroes, compareAlpha);
+
+// Schema of "list"
+// Anakin <-> Chewie <-> Han <-> Lando <-> Leia <-> Luke <-> Padme
+
+const updatedList = pipe(
+    (t) => addAlpha(t, { name: 'Obiwan' }),
+    (t) => addAlpha(t, [{ name: 'Boba' }, { name: 'Grogu' }]),
+    (t) => removeAlpha(t, [{ name: 'Han' }, { name: 'Padme' }]),
+    (t) => removeAlpha(t, { name: 'Luke' })
+)(list);
+
+// Schema of "updatedList"
+// Anakin <-> Boba <-> Chewie <-> Grogu <-> Lando <-> Leia <-> Obiwan
+
+const grogu = findOneAlpha(updatedList, { name: 'Grogu' }); // { data: 'Grogu', next: ..., prev: ...}
+```
+
 ## Documentation
 
 ### `hasPrev`, `hasNext`

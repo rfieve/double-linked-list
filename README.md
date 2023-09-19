@@ -14,6 +14,7 @@ A zero-dependency TypeScript library to work with doubly linked lists and arrays
         -   [`findOne`, `findMany`](#findone-findmany)
         -   [`find(Gt/Gte/Lt/Lte)`](#findgtgteltlte)
         -   [`hasPrev`, `hasNext`](#hasprev-hasnext)
+        -   [`makeCompareUtils`](#makecompareutils)
 
 ## Installation
 
@@ -171,6 +172,47 @@ const hasPrevB = hasPrev(list.head); // false
 
 const hasNextA = hasNext(list.head); // true
 const hasNextB = hasNext(list.tail); // false
+```
+
+---
+
+### `makeCompareUtils`
+
+As the compare function is centric, for both the creation and the traversals of the DLL, a good practice is to create all the necessary utils, along with it. This will be DRY and ensure reusability and consistency.
+
+```typescript
+// compare-alpha.ts
+export const compareAlpha = (a: Hero, b: Hero) => a.name.localeCompare(b.name);
+export const {
+    toDLL: toDLLAlpha,
+    add: addAlpha,
+    findOne: findOneAlpha,
+    findMany: findManyAlpha,
+    findGt: findGtAlpha,
+    findGte: findGteAlpha,
+    findLt: findLtAlpha,
+    findLte: findLteAlpha,
+} = makeCompareUtils(compareAlpha);
+
+// other-file.ts
+import {
+    toDLLAlpha,
+    addAlpha,
+    findOneAlpha,
+    findManyAlpha,
+    findGtAlpha,
+    findGteAlpha,
+    findLtAlpha,
+    findLteAlpha,
+} from './compare-alpha';
+
+const list = toDLLAlpha([{ name: 'Anakin' }]);
+
+const updatedList = pipe(
+    (t) => addAlpha(t, { name: 'Yoda' }),
+    (t) => removeAlpha(t, { name: 'Anakin' }),
+    (t) => findGteAlpha({ name: 'Yoda' })
+)(tree); // [{ data: 'Yoda' }]
 ```
 
 ---

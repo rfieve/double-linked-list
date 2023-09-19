@@ -1,4 +1,3 @@
-import { add as addNode } from '../functions/add';
 import { findGt as findGtNode } from '../functions/find-gt';
 import { findGte as findGteNode } from '../functions/find-gte';
 import { findLt as findLtNode } from '../functions/find-lt';
@@ -7,6 +6,8 @@ import { findMany as findManyNodes } from '../functions/find-many';
 import { findOne as findOneNode } from '../functions/find-one';
 import { hasNext as hasNextNode } from '../functions/has-next';
 import { hasPrev as hasPrevNode } from '../functions/has-prev';
+import { insert as insertNode } from '../functions/insert';
+import { push as pushNode } from '../functions/push';
 import { remove as removeNode } from '../functions/remove';
 import {
     toArrayInOrder as toArrayListInOrder,
@@ -35,8 +36,13 @@ export class DoublyLinkedList<T> {
     }
 
     // Updates
-    public readonly add = (elements: T | T[], compare?: CompareFunction<T>) => {
-        this.l = addNode(this.l, elements, compare || this.compare);
+    public readonly push = (elements: T | T[]) => {
+        this.l = pushNode(this.l, elements);
+        return this;
+    };
+
+    public readonly insert = (elements: T | T[], compare?: CompareFunction<T>) => {
+        this.l = insertNode(this.l, elements, compare || this.compare);
         return this;
     };
 

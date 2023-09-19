@@ -1,5 +1,6 @@
 import { CompareFunction, DLL } from '../types';
-import { add } from './add';
+import { insert } from './insert';
+import { push } from './push';
 
 /**
  * Converts the given array to a doubly linked list, depending on a given compare function.
@@ -10,9 +11,11 @@ import { add } from './add';
 export function toDLL<T>(elements: T[], compare?: CompareFunction<T>): DLL<T> {
     const copied = elements.slice();
     const sorted = compare ? copied.sort(compare) : copied;
-    const head = { data: sorted.shift() as T };
 
-    return add({ length: 1, head, tail: head }, sorted);
+    const head = { data: sorted.shift() as T };
+    const dll = { length: 1, head, tail: head };
+
+    return compare ? insert(dll, sorted, compare) : push(dll, sorted);
 }
 
 /**

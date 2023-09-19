@@ -10,7 +10,7 @@ A zero-dependency TypeScript library to work with doubly linked lists and arrays
     -   [Usage](#usage)
     -   [Documentation](#documentation)
         -   [`toDLL`](#todll)
-        -   [`add`](#add)
+        -   [`insert`, `push`](#insert-push)
         -   [`remove`](#remove)
         -   [`findOne`, `findMany`](#findone-findmany)
         -   [`find(Gt/Gte/Lt/Lte)`](#findgtgteltlte)
@@ -39,7 +39,7 @@ type Hero = { name: string };
 
 const compareAlpha = (a: Hero, b: Hero) => a.name.localeCompare(b.name);
 
-const addAlpha = makeAdd(compareAlpha);
+const insertAlpha = makeInsert(compareAlpha);
 const removeAlpha = makeRemove(compareAlpha);
 const findOneAlpha = makeFindOne(compareAlpha);
 
@@ -59,14 +59,15 @@ const list = toDLL(heroes, compareAlpha);
 // Anakin <-> Chewie <-> Han <-> Lando <-> Leia <-> Luke <-> Padme
 
 const updatedList = pipe(
-    (t) => addAlpha(t, { name: 'Obiwan' }),
-    (t) => addAlpha(t, [{ name: 'Boba' }, { name: 'Grogu' }]),
+    (t) => insertAlpha(t, { name: 'Obiwan' }),
+    (t) => insertAlpha(t, [{ name: 'Boba' }, { name: 'Grogu' }]),
+    (t) => push(t, { name: 'Vador' }),
     (t) => removeAlpha(t, [{ name: 'Han' }, { name: 'Padme' }]),
     (t) => removeAlpha(t, { name: 'Luke' })
 )(list);
 
 // Schema of "updatedList"
-// Anakin <-> Boba <-> Chewie <-> Grogu <-> Lando <-> Leia <-> Obiwan
+// Anakin <-> Boba <-> Chewie <-> Grogu <-> Lando <-> Leia <-> Obiwan <-> Vador
 
 const grogu = findOneAlpha(updatedList, { name: 'Grogu' }); // { data: 'Grogu', next: ..., prev: ...}
 ```
@@ -92,19 +93,24 @@ const unorderedList = toDLL(arr);
 
 ---
 
-### `add`
+### `insert`, `push`
 
-Adds a (or list of) given node(s) to the given doubly linked list (in place) with the given compare function and returns the list.
+Inserts a (or list of) given node(s) to the given doubly linked list (in place) and returns the list.
 
-> :warning: Using another compare function than the one used to create the list with `toDLL` will of course f\*\*k up the sorting. A safer approach consists of using `makeAdd`. It curries an `add` closure function with the given compare function.
+-   with the given compare function (`insert`),
+-   or at the tail (`push`).
+
+> :warning: Using another compare function than the one used to create the list with `toDLL` or using `push` will of course f\*\*k up the sorting. A safer approach consists of using `makeInsert`. It curries an `insert` closure function with the given compare function.
 
 ```typescript
-const modifiedList = add(list, 11, compare);
-const reModifiedList = add(modifiedList, [1, 100], compare);
+const modifiedList = insert(list, 11, compare);
+const reModifiedList = insert(modifiedList, [1, 100], compare);
 //or
-const safeAdd = makeAdd(compare);
-const modifiedList = safeAdd(list, 11);
-const reModifiedList = safeAdd(modifiedList, [1, 100]);
+const safeInsert = makeInsert(compare);
+const modifiedList = safeInsert(list, 11);
+const reModifiedList = safeInsert(modifiedList, [1, 100]);
+
+const reReModifiedList = push(modifiedList, [3, 17]);
 
 // Schema of "list"
 // 2 <-> 5 <-> 10 <-> 13 <-> 32 <-> 50 <-> 89
@@ -114,6 +120,9 @@ const reModifiedList = safeAdd(modifiedList, [1, 100]);
 //
 // Schema of "reModifiedList"
 // 1 <-> 2 <-> 5 <-> 10 <-> 13 <-> 32 <-> 50 <-> 89 <-> 100
+
+// Schema of "reReModifiedList"
+// 1 <-> 2 <-> 5 <-> 10 <-> 13 <-> 32 <-> 50 <-> 89 <-> 100 <-> 3 <-> 17
 ```
 
 ---
@@ -126,9 +135,9 @@ Removes a (or list of) given node(s) from the given doubly linked list (in place
 const modifiedList = remove(list, 13, compare);
 const reModifiedList = remove(modifiedList, [2, 89], compare);
 //or
-const safeAdd = makeAdd(compare);
-const modifiedList = safeAdd(list, 13);
-const reModifiedList = safeAdd(modifiedList, [2, 89]);
+const safeInsert = makeInsert(compare);
+const modifiedList = safeInsert(list, 13);
+const reModifiedList = safeInsert(modifiedList, [2, 89]);
 
 // Schema of "list"
 // 2 <-> 5 <-> 10 <-> 13 <-> 32 <-> 50 <-> 89
@@ -260,7 +269,7 @@ As the compare function is centric, for both the creation and the traversals of 
 export const compareAlpha = (a: Hero, b: Hero) => a.name.localeCompare(b.name);
 export const {
     toDLL: toDLLAlpha,
-    add: addAlpha,
+    insert: insertAlpha,
     remove: removeAlpha,
     findOne: findOneAlpha,
     findMany: findManyAlpha,
@@ -273,7 +282,7 @@ export const {
 // other-file.ts
 import {
     toDLLAlpha,
-    addAlpha,
+    insertAlpha,
     removeAlpha,
     findOneAlpha,
     findManyAlpha,
@@ -286,7 +295,7 @@ import {
 const list = toDLLAlpha([{ name: 'Anakin' }]);
 
 const updatedList = pipe(
-    (t) => addAlpha(t, { name: 'Yoda' }),
+    (t) => insertAlpha(t, { name: 'Yoda' }),
     (t) => removeAlpha(t, { name: 'Anakin' }),
     (t) => findGteAlpha({ name: 'Yoda' })
 )(list); // [{ data: 'Yoda' }]
@@ -330,12 +339,13 @@ const list = new DoublyLinkedList(heroes, compareAlpha);
 // Schema of list.list
 // Anakin <-> Chewie <-> Han <-> Lando <-> Leia <-> Luke <-> Padme
 
-list.add({ name: 'Yoda' })
-    .add({ name: 'Obiwan' })
-    .add([{ name: 'Boba' }, { name: 'Grogu' }])
+list.insert({ name: 'Yoda' })
+    .insert({ name: 'Obiwan' })
+    .insert([{ name: 'Boba' }, { name: 'Grogu' }])
+    .push({ name: 'Vador' })
     .remove([{ name: 'Han' }, { name: 'Padme' }])
     .remove({ name: 'Luke' });
 
 // Schema of list.list, after update
-// Anakin <-> Boba <-> Chewie <-> Grogu <-> Lando <-> Leia <-> Obiwan <-> Yoda
+// Anakin <-> Boba <-> Chewie <-> Grogu <-> Lando <-> Leia <-> Obiwan <-> Yoda <-> Vador
 ```

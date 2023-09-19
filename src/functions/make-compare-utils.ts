@@ -6,6 +6,7 @@ import { makeFindLt } from './find-lt';
 import { makeFindLte } from './find-lte';
 import { makeFindMany } from './find-many';
 import { makeFindOne } from './find-one';
+import { makeRemove } from './remove';
 import { makeToDLL } from './to-dll';
 
 /**
@@ -17,6 +18,7 @@ export function makeCompareUtils<T>(compare: CompareFunction<T>) {
     return {
         toDLL    : makeToDLL(compare),
         add      : makeAdd(compare),
+        remove   : makeRemove(compare),
         findOne  : makeFindOne(compare),
         findMany : makeFindMany(compare),
         findGt   : makeFindGt(compare),

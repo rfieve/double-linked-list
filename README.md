@@ -11,6 +11,7 @@ A zero-dependency TypeScript library to work with doubly linked lists and arrays
     -   [Documentation](#documentation)
         -   [`toDLL`](#todll)
         -   [`add`](#add)
+        -   [`remove`](#remove)
         -   [`findOne`, `findMany`](#findone-findmany)
         -   [`find(Gt/Gte/Lt/Lte)`](#findgtgteltlte)
         -   [`traverse`](#traverse)
@@ -112,6 +113,30 @@ const reModifiedList = safeAdd(modifiedList, [1, 100]);
 //
 // Schema of "reModifiedList"
 // 1 <-> 2 <-> 5 <-> 10 <-> 13 <-> 32 <-> 50 <-> 89 <-> 100
+```
+
+---
+
+### `remove`
+
+Removes a (or list of) given node(s) from the given doubly linked list (in place) with the given compare function and returns the list.
+
+```typescript
+const modifiedList = remove(list, 13, compare);
+const reModifiedList = remove(modifiedList, [2, 89], compare);
+//or
+const safeAdd = makeAdd(compare);
+const modifiedList = safeAdd(list, 13);
+const reModifiedList = safeAdd(modifiedList, [2, 89]);
+
+// Schema of "list"
+// 2 <-> 5 <-> 10 <-> 13 <-> 32 <-> 50 <-> 89
+//
+// Schema of "modifiedList"
+// 2 <-> 5 <-> 10 <-> 32 <-> 50 <-> 89
+//
+// Schema of "reModifiedList"
+// 5 <-> 10 <-> 32 <-> 50
 ```
 
 ---
@@ -235,6 +260,7 @@ export const compareAlpha = (a: Hero, b: Hero) => a.name.localeCompare(b.name);
 export const {
     toDLL: toDLLAlpha,
     add: addAlpha,
+    remove: removeAlpha,
     findOne: findOneAlpha,
     findMany: findManyAlpha,
     findGt: findGtAlpha,
@@ -247,6 +273,7 @@ export const {
 import {
     toDLLAlpha,
     addAlpha,
+    removeAlpha,
     findOneAlpha,
     findManyAlpha,
     findGtAlpha,

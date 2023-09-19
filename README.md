@@ -11,6 +11,8 @@ A zero-dependency TypeScript library to work with doubly linked lists and arrays
     -   [Documentation](#documentation)
         -   [`toDLL`](#todll)
         -   [`add`](#add)
+        -   [`findOne`, `findMany`](#findone-findmany)
+        -   [`find(Gt/Gte/Lt/Lte)`](#findgtgteltlte)
         -   [`hasPrev`, `hasNext`](#hasprev-hasnext)
 
 ## Installation
@@ -107,6 +109,51 @@ const reModifiedList = safeAdd(modifiedList, [1, 100]);
 //
 // Schema of "reModifiedList"
 // 1 <-> 2 <-> 5 <-> 10 <-> 13 <-> 32 <-> 50 <-> 89 <-> 100
+```
+
+---
+
+### `findOne`, `findMany`
+
+Finds the first (`findOne`) or all (`findMany`) the matching node(s) into the given doubly linked list with the given compare function.
+
+```typescript
+// This compare function will capture the elements that, when compared with the searched one,
+// will be in range of x - 5 to x + 5.
+const compare = (a: number, b: number) => {
+    if (a > b + 5) {
+        return 1;
+    }
+    if (a < b - 5) {
+        return -1;
+    }
+    return 0;
+};
+
+// Schema of "list"
+// 2 <-> 5 <-> 10 <-> 13 <-> 32 <-> 50 <-> 89
+
+const node = findOne(list, compare, 12)?.data; // 10
+const nodes = findMany(list, compare, 12).map(({ data }) => data); // [ 10, 13 ]
+```
+
+---
+
+### `find(Gt/Gte/Lt/Lte)`
+
+Finds all gt/gte/lt/lte nodes into the given doubly linked list with the given compare function.
+
+-   `findGt`
+-   `findGte`
+-   `findLt`
+-   `findLte`
+
+```typescript
+// Schema of "list"
+// 2 <-> 5 <-> 10 <-> 13 <-> 32 <-> 50 <-> 89
+
+const results = findGte(list, compare, 13).map(({ data }) => data);
+// [13, 32, 50, 89]
 ```
 
 ---

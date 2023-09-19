@@ -53,7 +53,7 @@ const heroes: Hero[] = [
     { name: 'Chewie' },
 ];
 
-const list = toDll(heroes, compareAlpha);
+const list = toDLL(heroes, compareAlpha);
 
 // Schema of "list"
 // Anakin <-> Chewie <-> Han <-> Lando <-> Leia <-> Luke <-> Padme

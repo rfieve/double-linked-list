@@ -173,7 +173,7 @@ Traverses a doubly linked list, invoking the callback function on each visited n
 // Schema of "list"
 // 2 <-> 5 <-> 10 <-> 13 <-> 32 <-> 50 <-> 89
 
-const collect = (collection: number[]) => (node: { data: number[] }) => {
+const collect = (collection: number[]) => (node: { data: number }) => {
     collection.push(node.data);
 };
 

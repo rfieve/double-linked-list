@@ -1,3 +1,4 @@
+export { DoublyLinkedList } from './classes/doubly-linked-list';
 export { add, makeAdd } from './functions/add';
 export { attach, attachNext, attachPrev } from './functions/attach';
 export { findGt, makeFindGt } from './functions/find-gt';
@@ -11,11 +12,10 @@ export { hasNext } from './functions/has-next';
 export { hasPrev } from './functions/has-prev';
 export { makeCompareUtils } from './functions/make-compare-utils';
 export { makeRemove, remove } from './functions/remove';
-export { toArrayInOrder, toArrayInReverse } from './functions/to-array';
-export { makeToDLL, toDLL } from './functions/to-dll';
+export { toArrayInOrder, toArrayInOrderReverse } from './functions/to-array';
+export { makeToDLL, toDLL } from './functions/to-doubly-linked-list';
 export { traverseFrom } from './functions/traverse-from';
-export { traverseInOrder } from './functions/traverse-in-order';
-export { traverseInReverse } from './functions/traverse-in-reverse';
+export { traverseInOrder, traverseInOrderReverse } from './functions/traverse-in-order';
 export type {
     CompareFunction,
     Direction,

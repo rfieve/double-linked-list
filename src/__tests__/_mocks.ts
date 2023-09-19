@@ -1,4 +1,4 @@
-import { toDLL } from '../functions/to-dll';
+import { toDLL } from '../functions/to-doubly-linked-list';
 import { DLL } from '../types';
 
 export function compare(a: number, b: number) {

@@ -18,6 +18,7 @@ A zero-dependency TypeScript library to work with doubly linked lists and arrays
         -   [`toArray`](#toarray)
         -   [`hasPrev`, `hasNext`](#hasprev-hasnext)
         -   [`makeCompareUtils`](#makecompareutils)
+        -   [The infamous `DoublyLinkedList` class](#the-infamous-doublylinkedlist-class)
 
 ## Installation
 
@@ -192,7 +193,7 @@ Traverses a doubly linked list, invoking the callback function on each visited n
 
 -   `traverseFrom`
 -   `traverseInOrder`
--   `traverseInReverse`
+-   `traverseInOrderReverse`
 
 ```typescript
 // Schema of "list"
@@ -208,7 +209,7 @@ traverseFrom(list.head, 'next', collect(elements));
 // elements: [2, 5, 10, 13, 32, 50, 89]
 traverseInOrder(list, collect(elements));
 // elements: [2, 5, 10, 13, 32, 50, 89]
-traverseInReverse(list, collect(elements));
+traverseInOrderReverse(list, collect(elements));
 // elements: [89, 50, 32, 13, 10, 5, 2]
 ```
 
@@ -219,7 +220,7 @@ traverseInReverse(list, collect(elements));
 Converts the given doubly linked list to an array sorted as traversed:
 
 -   `toArrayInOrder`
--   `toArrayInReverse`
+-   `toArrayInOrderReverse`
 
 ```typescript
 // Schema of "list"
@@ -227,7 +228,7 @@ Converts the given doubly linked list to an array sorted as traversed:
 
 const a = toArrayInOrder(list);
 // [2, 5, 10, 13, 32, 50, 89]
-const b = toArrayInReverse(list);
+const b = toArrayInOrderReverse(list);
 // [89, 50, 32, 13, 10, 5, 2]
 ```
 
@@ -292,3 +293,49 @@ const updatedList = pipe(
 ```
 
 ---
+
+### The infamous `DoublyLinkedList` class
+
+While diverging from the functional approach, the `DoublyLinkedList` class offers many advantages, depending on the situation:
+
+Pros:
+
+-   Natural chaining
+-   List state encapsulation
+-   Compare function encapsulation
+-   Has all methods listed as functions before
+
+Cons:
+
+-   No tree shaking of unused methods, obviously
+
+Let's rewrite the Star Wars example with this approach:
+
+```typescript
+type Hero = { name: string };
+
+const compareAlpha = (a: Hero, b: Hero) => a.name.localeCompare(b.name);
+
+const heroes: Hero[] = [
+    { name: 'Han' },
+    { name: 'Anakin' },
+    { name: 'Leia' },
+    { name: 'Luke' },
+    { name: 'Padme' },
+    { name: 'Lando' },
+    { name: 'Chewie' },
+];
+
+const list = new DoublyLinkedList(heroes, compareAlpha);
+// Schema of list.list
+// Anakin <-> Chewie <-> Han <-> Lando <-> Leia <-> Luke <-> Padme
+
+list.add({ name: 'Yoda' })
+    .add({ name: 'Obiwan' })
+    .add([{ name: 'Boba' }, { name: 'Grogu' }])
+    .remove([{ name: 'Han' }, { name: 'Padme' }])
+    .remove({ name: 'Luke' });
+
+// Schema of list.list, after update
+// Anakin <-> Boba <-> Chewie <-> Grogu <-> Lando <-> Leia <-> Obiwan <-> Yoda
+```

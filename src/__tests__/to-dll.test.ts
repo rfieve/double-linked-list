@@ -1,4 +1,4 @@
-import { makeToDLL, toDLL } from '../functions/to-dll';
+import { makeToDLL, toDLL } from '../functions/to-doubly-linked-list';
 import { compare, mockedArray } from './_mocks';
 
 describe('toDLL', () => {

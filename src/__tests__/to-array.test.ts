@@ -1,4 +1,4 @@
-import { toArrayInOrder, toArrayInReverse } from '../functions/to-array';
+import { toArrayInOrder, toArrayInOrderReverse } from '../functions/to-array';
 import { mockedArrayInOrder, mockedOrderedList } from './_mocks';
 
 describe('toArrayInOrder', () => {
@@ -9,6 +9,8 @@ describe('toArrayInOrder', () => {
 
 describe('toArrayReverse', () => {
     it('should convert dll to an array correctly', () => {
-        expect(toArrayInReverse(mockedOrderedList)).toEqual(mockedArrayInOrder.slice().reverse());
+        expect(toArrayInOrderReverse(mockedOrderedList)).toEqual(
+            mockedArrayInOrder.slice().reverse()
+        );
     });
 });

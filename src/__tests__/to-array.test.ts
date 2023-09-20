@@ -7,7 +7,7 @@ describe('toArrayInOrder', () => {
     });
 });
 
-describe('toArrayReverse', () => {
+describe('toArrayInOrderReverse', () => {
     it('should convert dll to an array correctly', () => {
         expect(toArrayInOrderReverse(mockedOrderedList)).toEqual(
             mockedArrayInOrder.slice().reverse()

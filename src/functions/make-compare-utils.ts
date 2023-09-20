@@ -7,6 +7,7 @@ import { makeFindMany } from './find-many';
 import { makeFindOne } from './find-one';
 import { makeInsert } from './insert';
 import { makeRemove } from './remove';
+import { makeSort } from './sort';
 import { makeToDLL } from './to-doubly-linked-list';
 
 /**
@@ -19,6 +20,7 @@ export function makeCompareUtils<T>(compare: CompareFunction<T>) {
         toDLL    : makeToDLL(compare),
         add      : makeInsert(compare),
         remove   : makeRemove(compare),
+        sort     : makeSort(compare),
         findOne  : makeFindOne(compare),
         findMany : makeFindMany(compare),
         findGt   : makeFindGt(compare),

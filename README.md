@@ -12,6 +12,7 @@ A zero-dependency TypeScript library to work with doubly linked lists and arrays
         -   [`toDLL`](#todll)
         -   [`unshift`, `insert`, `push`](#unshift-insert-push)
         -   [`remove`](#remove)
+        -   [`sort`](#sort)
         -   [`findOne`, `findMany`](#findone-findmany)
         -   [`find(Gt/Gte/Lt/Lte)`](#findgtgteltlte)
         -   [`traverse`](#traverse)
@@ -131,6 +132,22 @@ const a = remove(list, 13, compare);
 // 2 <-> 5 <-> 10 <-> 32 <-> 50 <-> 89
 const b = remove(list, [2, 89], compare);
 // 5 <-> 10 <-> 32 <-> 50
+```
+
+---
+
+### `sort`
+
+Sorts a doubly linked list with the given compare function and returns the new list.
+
+```typescript
+// Schema of "list"
+// 2 <-> 5 <-> 10 <-> 13 <-> 32 <-> 50 <-> 89
+
+const reversed = sort(list, (a: number, b: number) => b - a);
+// 89 <-> 50 <-> 32 <-> 13 <-> 10 <-> 5 <-> 2
+const ordered = sort(reversed, (a: number, b: number) => a - b);
+// 2 <-> 5 <-> 10 <-> 13 <-> 32 <-> 50 <-> 89
 ```
 
 ---
@@ -255,6 +272,7 @@ export const {
     toDLL: toDLLAlpha,
     insert: insertAlpha,
     remove: removeAlpha,
+    sort: sortAlpha,
     findOne: findOneAlpha,
     findMany: findManyAlpha,
     findGt: findGtAlpha,
@@ -268,6 +286,7 @@ import {
     toDLLAlpha,
     insertAlpha,
     removeAlpha,
+    sortAlpha,
     findOneAlpha,
     findManyAlpha,
     findGtAlpha,

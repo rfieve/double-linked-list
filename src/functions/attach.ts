@@ -7,19 +7,17 @@ import { Direction, DLLNode } from '../types';
  * @param direction The direction (next/prev) whereas to attach the element.
  */
 export function attach<T>(node: DLLNode<T>, element: T, direction: Direction) {
-    const oppositeDirection = direction === Direction.Prev ? Direction.Next : Direction.Prev;
+    const opposite = direction === Direction.Prev ? Direction.Next : Direction.Prev;
 
-    const { [direction]: replacedNode } = node;
+    const newNode = { data: element, [opposite]: node };
+    const oldNode = node[direction];
 
-    const newNode = { data: element, [oppositeDirection]: node, [`${direction}`]: replacedNode };
-
-    if (replacedNode) {
-        replacedNode[oppositeDirection] = newNode;
+    if (oldNode) {
+        newNode[direction] = oldNode;
+        oldNode[opposite] = newNode;
     }
 
-    node[direction] = newNode;
-
-    return newNode;
+    return (node[direction] = newNode);
 }
 
 /**

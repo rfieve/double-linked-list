@@ -9,6 +9,7 @@ import { hasPrev as hasPrevNode } from '../functions/has-prev';
 import { insert as insertNode } from '../functions/insert';
 import { push as pushNode } from '../functions/push';
 import { remove as removeNode } from '../functions/remove';
+import { sort as sortNodes } from '../functions/sort';
 import {
     toArrayInOrder as toArrayListInOrder,
     toArrayInOrderReverse as toArrayListInOrderReverse,
@@ -25,15 +26,24 @@ import { CompareFunction, Direction, DLL, DLLNode } from '../types';
 export class DoublyLinkedList<T> {
     private l! : DLL<T>;
 
-    private readonly compare! : CompareFunction<T>;
+    private compare! : CompareFunction<T>;
 
     constructor(elements: T[], compare = (() => 1) as CompareFunction<T>) {
         this.compare = compare;
         this.l = toDLL(elements, compare);
     }
 
-    public get list() {
+    public get dll() {
         return this.l;
+    }
+    public get length() {
+        return this.l.length;
+    }
+    public get head() {
+        return this.l.head;
+    }
+    public get tail() {
+        return this.l.tail;
     }
 
     // Updates
@@ -57,6 +67,12 @@ export class DoublyLinkedList<T> {
         return this;
     };
 
+    public readonly sort = (compare?: CompareFunction<T>) => {
+        this.compare = compare || this.compare;
+        this.l = sortNodes(this.l, this.compare);
+        return this;
+    };
+
     // Traversals
     public readonly traverseFrom = (
         node: DLLNode<T>,
@@ -64,7 +80,6 @@ export class DoublyLinkedList<T> {
         cb: (node: DLLNode<T>) => void
     ) => {
         traverseListFrom(node, direction, cb);
-
         return this;
     };
 

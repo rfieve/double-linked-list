@@ -13,6 +13,7 @@ export { insert, makeInsert } from './functions/insert';
 export { makeCompareUtils } from './functions/make-compare-utils';
 export { push } from './functions/push';
 export { makeRemove, remove } from './functions/remove';
+export { makeSort, sort } from './functions/sort';
 export { toArrayInOrder, toArrayInOrderReverse } from './functions/to-array';
 export { makeToDLL, toDLL } from './functions/to-doubly-linked-list';
 export { traverseFrom } from './functions/traverse-from';

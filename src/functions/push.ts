@@ -16,7 +16,7 @@ function pushElements<T>(dll: DLL<T>, elements: T[]) {
  * Adds the given elements to the given doubly linked list's tail in place.
  * @param dll The source doubly linked list.
  * @param elements The nodes to be pushed.
- * @returns The new doubly linked list.
+ * @returns The doubly linked list.
  */
 export function push<T>(dll: DLL<T>, elements: T | T[]): DLL<T> {
     if (Array.isArray(elements)) {

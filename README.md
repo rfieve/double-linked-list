@@ -11,7 +11,7 @@ A zero-dependency TypeScript library to work with doubly linked lists and arrays
     -   [Documentation](#documentation)
         -   [`toDLL`](#todll)
         -   [`unshift`, `insert`, `push`](#unshift-insert-push)
-        -   [`remove`](#remove)
+        -   [`shit`, `remove`, `pop`](#shit-remove-pop)
         -   [`sort`](#sort)
         -   [`findOne`, `findMany`](#findone-findmany)
         -   [`find(Gt/Gte/Lt/Lte)`](#findgtgteltlte)
@@ -120,9 +120,13 @@ const d = unshift(list, 7);
 
 ---
 
-### `remove`
+### `shit`, `remove`, `pop`
 
 Removes a (or list of) given node(s) from the given doubly linked list (in place) with the given compare function and returns the list.
+
+-   with the given compare function (`remove`)
+-   at the head (`shift`)
+-   at the tail (`pop`)
 
 ```typescript
 // Schema of "list"
@@ -132,6 +136,10 @@ const a = remove(list, 13, compare);
 // 2 <-> 5 <-> 10 <-> 32 <-> 50 <-> 89
 const b = remove(list, [2, 89], compare);
 // 5 <-> 10 <-> 32 <-> 50
+const c = shift(list);
+// 10 <-> 32 <-> 50
+const d = pop(list);
+// 10 <-> 32
 ```
 
 ---

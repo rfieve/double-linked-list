@@ -31,7 +31,7 @@ function insertElements<T>(dll: DLL<T>, elements: T[], compare: CompareFunction<
  * @param dll The source doubly linked list.
  * @param elements The nodes to be inserted.
  * @param compare The compare function.
- * @returns The new doubly linked list.
+ * @returns The doubly linked list.
  */
 export function insert<T>(dll: DLL<T>, elements: T | T[], compare: CompareFunction<T>): DLL<T> {
     if (Array.isArray(elements)) {

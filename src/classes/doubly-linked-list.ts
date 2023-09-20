@@ -7,8 +7,10 @@ import { findOne as findOneNode } from '../functions/find-one';
 import { hasNext as hasNextNode } from '../functions/has-next';
 import { hasPrev as hasPrevNode } from '../functions/has-prev';
 import { insert as insertNode } from '../functions/insert';
+import { pop as popNode } from '../functions/pop';
 import { push as pushNode } from '../functions/push';
 import { remove as removeNode } from '../functions/remove';
+import { shift as shiftNode } from '../functions/shift';
 import { sort as sortNodes } from '../functions/sort';
 import {
     toArrayInOrder as toArrayListInOrder,
@@ -59,6 +61,16 @@ export class DoublyLinkedList<T> {
 
     public readonly insert = (elements: T | T[], compare?: CompareFunction<T>) => {
         this.l = insertNode(this.l, elements, compare || this.compare);
+        return this;
+    };
+
+    public pop = (amount = 1) => {
+        this.l = popNode(this.l, amount);
+        return this;
+    };
+
+    public shift = (amount = 1) => {
+        this.l = shiftNode(this.l, amount);
         return this;
     };
 

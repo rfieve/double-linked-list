@@ -266,10 +266,9 @@ Reduces the given doubly linked list to anything
 ```typescript
 // Schema of "list"
 // 2 <-> 5 <-> 10 <-> 13 <-> 32 <-> 50 <-> 89
-// 2 8
+
 const reducer = (acc: number, node: DLLNode, index: number) => acc + node.data + index;
 const a = reduce(list, reducer, 0); // 222
-//
 ```
 
 ---

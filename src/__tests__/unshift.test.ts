@@ -1,11 +1,12 @@
 import { unshift } from '../functions/unshift';
-import { DLL, DLLNode } from '../types';
+import { makeEmptyDLL } from '../helpers/make-dll';
+import { DLL, DLLNode, DLLWithNodes } from '../types';
 
 describe('unshift', () => {
     let prev: DLLNode<number>;
     let curr: DLLNode<number>;
     let next: DLLNode<number>;
-    let dll: DLL<number>;
+    let dll: DLLWithNodes<number>;
 
     beforeEach(() => {
         prev = { data: 0 };
@@ -33,5 +34,38 @@ describe('unshift', () => {
         expect(dll.head.data).toBe(3);
         expect(dll.head.next?.data).toBe(4);
         expect(dll.head.next?.next).toBe(prev);
+    });
+
+    it('should unshift one element to an empty list correctly', () => {
+        const empty: DLL<number> = makeEmptyDLL();
+
+        unshift(empty, 3);
+        unshift(empty, 2);
+        unshift(empty, 1);
+
+        expect(empty.length).toEqual(3);
+        expect(empty.head?.data).toBe(1);
+        expect(empty.head?.next?.data).toBe(2);
+        expect(empty.head?.next?.next?.data).toBe(3);
+
+        expect(empty.tail?.data).toBe(3);
+        expect(empty.tail?.prev?.data).toBe(2);
+        expect(empty.tail?.prev?.prev?.data).toBe(1);
+    });
+
+    it('should unshift multiple elements to an empty list correctly', () => {
+        const empty: DLL<number> = makeEmptyDLL();
+
+        unshift(empty, [2, 3]);
+        unshift(empty, 1);
+
+        expect(empty.length).toEqual(3);
+        expect(empty.head?.data).toBe(1);
+        expect(empty.head?.next?.data).toBe(2);
+        expect(empty.head?.next?.next?.data).toBe(3);
+
+        expect(empty.tail?.data).toBe(3);
+        expect(empty.tail?.prev?.data).toBe(2);
+        expect(empty.tail?.prev?.prev?.data).toBe(1);
     });
 });

@@ -1,12 +1,14 @@
-import { DLL } from '../types';
+import { DLL, DLLWithNodes } from '../types';
 import { attachNext } from './attach';
+import { hasNodes } from './has-nodes';
+import { toDLL } from './to-doubly-linked-list';
 
-function pushElement<T>(dll: DLL<T>, element: T) {
+function pushElement<T>(dll: DLLWithNodes<T>, element: T) {
     dll.length++;
     dll.tail = attachNext(dll.tail, element);
 }
 
-function pushElements<T>(dll: DLL<T>, elements: T[]) {
+function pushElements<T>(dll: DLLWithNodes<T>, elements: T[]) {
     for (const element of elements) {
         pushElement(dll, element);
     }
@@ -19,7 +21,13 @@ function pushElements<T>(dll: DLL<T>, elements: T[]) {
  * @returns The doubly linked list.
  */
 export function push<T>(dll: DLL<T>, elements: T | T[]): DLL<T> {
-    if (Array.isArray(elements)) {
+    const isArray = Array.isArray(elements);
+
+    if (!hasNodes(dll)) {
+        return Object.assign(dll, toDLL(isArray ? elements : [elements]));
+    }
+
+    if (isArray) {
         pushElements(dll, elements);
     } else {
         pushElement(dll, elements);

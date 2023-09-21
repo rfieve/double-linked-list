@@ -1,12 +1,12 @@
 import { makeRemove } from '../functions/remove';
-import { DLL, DLLNode } from '../types';
+import { DLLNode, DLLWithNodes } from '../types';
 import { compare } from './_mocks';
 
 describe('remove', () => {
     let prev: DLLNode<number>;
     let curr: DLLNode<number>;
     let next: DLLNode<number>;
-    let dll: DLL<number>;
+    let dll: DLLWithNodes<number>;
 
     const bound = makeRemove(compare);
 

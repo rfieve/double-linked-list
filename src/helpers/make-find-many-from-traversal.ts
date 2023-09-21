@@ -1,3 +1,4 @@
+import { hasNodes } from '../functions/has-nodes';
 import { CompareFunction, DLL, DLLNode } from '../types';
 import { makeCollectNode } from './collect';
 
@@ -11,9 +12,12 @@ export function makeFindManyFromTraversal<T>(
 ) {
     return function findMany(dll: DLL<T>, compare: CompareFunction<T>, element: T): DLLNode<T>[] {
         const nodes: DLLNode<T>[] = [];
-        const collect = makeCollectNode(nodes);
 
-        traverse(collect, dll.head, compare, element);
+        if (hasNodes(dll)) {
+            const collect = makeCollectNode(nodes);
+
+            traverse(collect, dll.head, compare, element);
+        }
 
         return nodes;
     };

@@ -8,9 +8,11 @@ export { findMany, makeFindMany } from './functions/find-many';
 export { findNextGte } from './functions/find-next-gte';
 export { findOne, makeFindOne } from './functions/find-one';
 export { hasNext } from './functions/has-next';
+export { hasNodes } from './functions/has-nodes';
 export { hasPrev } from './functions/has-prev';
 export { insert, makeInsert } from './functions/insert';
 export { makeCompareUtils } from './functions/make-compare-utils';
+export { map } from './functions/map';
 export { pop } from './functions/pop';
 export { push } from './functions/push';
 export { reduce } from './functions/reduce';
@@ -33,6 +35,7 @@ export type {
     DLLNode,
     DLLNodeWithNext,
     DLLNodeWithPrev,
+    DLLWithNodes,
     MapFunction,
     ReduceFunction,
     TraverseCallback,

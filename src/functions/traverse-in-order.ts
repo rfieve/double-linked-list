@@ -1,4 +1,5 @@
 import { Direction, DLL, TraverseCallback } from '../types';
+import { hasNodes } from './has-nodes';
 import { traverseFrom } from './traverse-from';
 
 /**
@@ -8,7 +9,9 @@ import { traverseFrom } from './traverse-from';
  * @param cb the callback to invoke on each traversed node.
  */
 export function traverseInOrder<T>(dll: DLL<T>, cb: TraverseCallback<T>) {
-    traverseFrom(dll.head, Direction.Next, cb);
+    if (hasNodes(dll)) {
+        traverseFrom(dll.head, Direction.Next, cb);
+    }
 }
 
 /**
@@ -18,5 +21,7 @@ export function traverseInOrder<T>(dll: DLL<T>, cb: TraverseCallback<T>) {
  * @param cb the callback to invoke on each traversed node.
  */
 export function traverseInOrderReverse<T>(dll: DLL<T>, cb: TraverseCallback<T>) {
-    traverseFrom(dll.tail, Direction.Prev, cb);
+    if (hasNodes(dll)) {
+        traverseFrom(dll.tail, Direction.Prev, cb);
+    }
 }

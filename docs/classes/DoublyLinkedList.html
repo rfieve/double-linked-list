@@ -25,7 +25,7 @@
 <ul class="tsd-hierarchy">
 <li><span class="target">DoublyLinkedList</span></li></ul></section><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/rfieve/doubly-linked-list/blob/9cf40c4/src/classes/doubly-linked-list.ts#L31">classes/doubly-linked-list.ts:31</a></li></ul></aside>
+<li>Defined in <a href="https://github.com/rfieve/doubly-linked-list/blob/54fd22c/src/classes/doubly-linked-list.ts#L36">classes/doubly-linked-list.ts:36</a></li></ul></aside>
 <section class="tsd-panel-group tsd-index-group">
 <section class="tsd-panel tsd-index-panel">
 <details class="tsd-index-content tsd-index-accordion" open><summary class="tsd-accordion-summary tsd-index-summary">
@@ -56,6 +56,7 @@
 <a href="DoublyLinkedList.html#findMany" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>find<wbr/>Many</span></a>
 <a href="DoublyLinkedList.html#findOne" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>find<wbr/>One</span></a>
 <a href="DoublyLinkedList.html#hasNext" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>has<wbr/>Next</span></a>
+<a href="DoublyLinkedList.html#hasNodes" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>has<wbr/>Nodes</span></a>
 <a href="DoublyLinkedList.html#hasPrev" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>has<wbr/>Prev</span></a>
 <a href="DoublyLinkedList.html#insert" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>insert</span></a>
 <a href="DoublyLinkedList.html#pop" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>pop</span></a>
@@ -72,13 +73,14 @@
 <a href="DoublyLinkedList.html#traverseInOrder" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>traverse<wbr/>In<wbr/>Order</span></a>
 <a href="DoublyLinkedList.html#traverseInOrderReverse" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>traverse<wbr/>In<wbr/>Order<wbr/>Reverse</span></a>
 <a href="DoublyLinkedList.html#unshift" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>unshift</span></a>
+<a href="DoublyLinkedList.html#fromArray" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>from<wbr/>Array</span></a>
 </div></section></div></details></section></section>
 <section class="tsd-panel-group tsd-member-group">
 <h2>Constructors</h2>
 <section class="tsd-panel tsd-member"><a id="constructor" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>constructor</span><a href="#constructor" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
-<li class="tsd-signature tsd-anchor-link" id="constructor.new_DoublyLinkedList"><span class="tsd-kind-constructor-signature">new <wbr/>Doubly<wbr/>Linked<wbr/>List</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type tsd-kind-type-parameter">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">elements</span>, <span class="tsd-kind-parameter">compare</span><span class="tsd-signature-symbol">?</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="DoublyLinkedList.html" class="tsd-signature-type tsd-kind-class">DoublyLinkedList</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type tsd-kind-type-parameter">T</span><span class="tsd-signature-symbol">&gt;</span><a href="#constructor.new_DoublyLinkedList" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
+<li class="tsd-signature tsd-anchor-link" id="constructor.new_DoublyLinkedList"><span class="tsd-kind-constructor-signature">new <wbr/>Doubly<wbr/>Linked<wbr/>List</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type tsd-kind-type-parameter">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">elements</span><span class="tsd-signature-symbol">?</span>, <span class="tsd-kind-parameter">compare</span><span class="tsd-signature-symbol">?</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="DoublyLinkedList.html" class="tsd-signature-type tsd-kind-class">DoublyLinkedList</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type tsd-kind-type-parameter">T</span><span class="tsd-signature-symbol">&gt;</span><a href="#constructor.new_DoublyLinkedList" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
 <li class="tsd-description">
 <section class="tsd-panel">
 <h4>Type Parameters</h4>
@@ -89,24 +91,24 @@
 <h4 class="tsd-parameters-title">Parameters</h4>
 <ul class="tsd-parameter-list">
 <li>
-<h5><span class="tsd-kind-parameter">elements</span>: <span class="tsd-signature-type tsd-kind-type-parameter">T</span><span class="tsd-signature-symbol">[]</span></h5></li>
+<h5><span class="tsd-kind-parameter">elements</span>: <span class="tsd-signature-type tsd-kind-type-parameter">T</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> = ...</span></h5></li>
 <li>
 <h5><span class="tsd-kind-parameter">compare</span>: <a href="../types/CompareFunction.html" class="tsd-signature-type tsd-kind-type-alias">CompareFunction</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type tsd-kind-type-parameter">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> = ...</span></h5></li></ul></div>
 <h4 class="tsd-returns-title">Returns <a href="DoublyLinkedList.html" class="tsd-signature-type tsd-kind-class">DoublyLinkedList</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type tsd-kind-type-parameter">T</span><span class="tsd-signature-symbol">&gt;</span></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/rfieve/doubly-linked-list/blob/9cf40c4/src/classes/doubly-linked-list.ts#L36">classes/doubly-linked-list.ts:36</a></li></ul></aside></li></ul></section></section>
+<li>Defined in <a href="https://github.com/rfieve/doubly-linked-list/blob/54fd22c/src/classes/doubly-linked-list.ts#L40">classes/doubly-linked-list.ts:40</a></li></ul></aside></li></ul></section></section>
 <section class="tsd-panel-group tsd-member-group">
 <h2>Properties</h2>
 <section class="tsd-panel tsd-member tsd-is-private"><a id="compare" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagPrivate">Private</code> <span>compare</span><a href="#compare" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <div class="tsd-signature"><span class="tsd-kind-property">compare</span><span class="tsd-signature-symbol">:</span> <a href="../types/CompareFunction.html" class="tsd-signature-type tsd-kind-type-alias">CompareFunction</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type tsd-kind-type-parameter">T</span><span class="tsd-signature-symbol">&gt;</span></div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/rfieve/doubly-linked-list/blob/9cf40c4/src/classes/doubly-linked-list.ts#L34">classes/doubly-linked-list.ts:34</a></li></ul></aside></section>
+<li>Defined in <a href="https://github.com/rfieve/doubly-linked-list/blob/54fd22c/src/classes/doubly-linked-list.ts#L38">classes/doubly-linked-list.ts:38</a></li></ul></aside></section>
 <section class="tsd-panel tsd-member tsd-is-private"><a id="l" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagPrivate">Private</code> <span>l</span><a href="#l" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <div class="tsd-signature"><span class="tsd-kind-property">l</span><span class="tsd-signature-symbol">:</span> <a href="../types/DLL.html" class="tsd-signature-type tsd-kind-type-alias">DLL</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type tsd-kind-type-parameter">T</span><span class="tsd-signature-symbol">&gt;</span></div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/rfieve/doubly-linked-list/blob/9cf40c4/src/classes/doubly-linked-list.ts#L32">classes/doubly-linked-list.ts:32</a></li></ul></aside></section></section>
+<li>Defined in <a href="https://github.com/rfieve/doubly-linked-list/blob/54fd22c/src/classes/doubly-linked-list.ts#L37">classes/doubly-linked-list.ts:37</a></li></ul></aside></section></section>
 <section class="tsd-panel-group tsd-member-group">
 <h2>Accessors</h2>
 <section class="tsd-panel tsd-member"><a id="dll" class="tsd-anchor"></a>
@@ -116,15 +118,15 @@
 <li class="tsd-description">
 <h4 class="tsd-returns-title">Returns <a href="../types/DLL.html" class="tsd-signature-type tsd-kind-type-alias">DLL</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type tsd-kind-type-parameter">T</span><span class="tsd-signature-symbol">&gt;</span></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/rfieve/doubly-linked-list/blob/9cf40c4/src/classes/doubly-linked-list.ts#L41">classes/doubly-linked-list.ts:41</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/rfieve/doubly-linked-list/blob/54fd22c/src/classes/doubly-linked-list.ts#L45">classes/doubly-linked-list.ts:45</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="head" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>head</span><a href="#head" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
-<li class="tsd-signature" id="head.head-1"><span class="tsd-signature-symbol">get</span> head<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type ">Omit</span><span class="tsd-signature-symbol">&lt;</span><a href="../types/DLLNode.html" class="tsd-signature-type tsd-kind-type-alias">DLLNode</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type tsd-kind-type-parameter">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">, </span><a href="../enums/Direction.html#Prev" class="tsd-signature-type tsd-kind-enum-member">Prev</a><span class="tsd-signature-symbol">&gt;</span></li>
+<li class="tsd-signature" id="head.head-1"><span class="tsd-signature-symbol">get</span> head<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type ">Omit</span><span class="tsd-signature-symbol">&lt;</span><a href="../types/DLLNode.html" class="tsd-signature-type tsd-kind-type-alias">DLLNode</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type tsd-kind-type-parameter">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">, </span><a href="../enums/Direction.html#Prev" class="tsd-signature-type tsd-kind-enum-member">Prev</a><span class="tsd-signature-symbol">&gt;</span></li>
 <li class="tsd-description">
-<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type ">Omit</span><span class="tsd-signature-symbol">&lt;</span><a href="../types/DLLNode.html" class="tsd-signature-type tsd-kind-type-alias">DLLNode</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type tsd-kind-type-parameter">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">, </span><a href="../enums/Direction.html#Prev" class="tsd-signature-type tsd-kind-enum-member">Prev</a><span class="tsd-signature-symbol">&gt;</span></h4><aside class="tsd-sources">
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type ">Omit</span><span class="tsd-signature-symbol">&lt;</span><a href="../types/DLLNode.html" class="tsd-signature-type tsd-kind-type-alias">DLLNode</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type tsd-kind-type-parameter">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">, </span><a href="../enums/Direction.html#Prev" class="tsd-signature-type tsd-kind-enum-member">Prev</a><span class="tsd-signature-symbol">&gt;</span></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/rfieve/doubly-linked-list/blob/9cf40c4/src/classes/doubly-linked-list.ts#L47">classes/doubly-linked-list.ts:47</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/rfieve/doubly-linked-list/blob/54fd22c/src/classes/doubly-linked-list.ts#L51">classes/doubly-linked-list.ts:51</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="length" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>length</span><a href="#length" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -132,15 +134,15 @@
 <li class="tsd-description">
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/rfieve/doubly-linked-list/blob/9cf40c4/src/classes/doubly-linked-list.ts#L44">classes/doubly-linked-list.ts:44</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/rfieve/doubly-linked-list/blob/54fd22c/src/classes/doubly-linked-list.ts#L48">classes/doubly-linked-list.ts:48</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="tail" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>tail</span><a href="#tail" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
-<li class="tsd-signature" id="tail.tail-1"><span class="tsd-signature-symbol">get</span> tail<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type ">Omit</span><span class="tsd-signature-symbol">&lt;</span><a href="../types/DLLNode.html" class="tsd-signature-type tsd-kind-type-alias">DLLNode</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type tsd-kind-type-parameter">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">, </span><a href="../enums/Direction.html#Next" class="tsd-signature-type tsd-kind-enum-member">Next</a><span class="tsd-signature-symbol">&gt;</span></li>
+<li class="tsd-signature" id="tail.tail-1"><span class="tsd-signature-symbol">get</span> tail<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type ">Omit</span><span class="tsd-signature-symbol">&lt;</span><a href="../types/DLLNode.html" class="tsd-signature-type tsd-kind-type-alias">DLLNode</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type tsd-kind-type-parameter">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">, </span><a href="../enums/Direction.html#Next" class="tsd-signature-type tsd-kind-enum-member">Next</a><span class="tsd-signature-symbol">&gt;</span></li>
 <li class="tsd-description">
-<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type ">Omit</span><span class="tsd-signature-symbol">&lt;</span><a href="../types/DLLNode.html" class="tsd-signature-type tsd-kind-type-alias">DLLNode</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type tsd-kind-type-parameter">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">, </span><a href="../enums/Direction.html#Next" class="tsd-signature-type tsd-kind-enum-member">Next</a><span class="tsd-signature-symbol">&gt;</span></h4><aside class="tsd-sources">
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type ">Omit</span><span class="tsd-signature-symbol">&lt;</span><a href="../types/DLLNode.html" class="tsd-signature-type tsd-kind-type-alias">DLLNode</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type tsd-kind-type-parameter">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">, </span><a href="../enums/Direction.html#Next" class="tsd-signature-type tsd-kind-enum-member">Next</a><span class="tsd-signature-symbol">&gt;</span></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/rfieve/doubly-linked-list/blob/9cf40c4/src/classes/doubly-linked-list.ts#L50">classes/doubly-linked-list.ts:50</a></li></ul></aside></li></ul></section></section>
+<li>Defined in <a href="https://github.com/rfieve/doubly-linked-list/blob/54fd22c/src/classes/doubly-linked-list.ts#L54">classes/doubly-linked-list.ts:54</a></li></ul></aside></li></ul></section></section>
 <section class="tsd-panel-group tsd-member-group">
 <h2>Methods</h2>
 <section class="tsd-panel tsd-member"><a id="findGt" class="tsd-anchor"></a>
@@ -155,7 +157,7 @@
 <h5><span class="tsd-kind-parameter">element</span>: <span class="tsd-signature-type tsd-kind-type-parameter">T</span></h5></li></ul></div>
 <h4 class="tsd-returns-title">Returns <a href="../types/DLLNode.html" class="tsd-signature-type tsd-kind-type-alias">DLLNode</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type tsd-kind-type-parameter">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">[]</span></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/rfieve/doubly-linked-list/blob/9cf40c4/src/classes/doubly-linked-list.ts#L143">classes/doubly-linked-list.ts:143</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/rfieve/doubly-linked-list/blob/54fd22c/src/classes/doubly-linked-list.ts#L155">classes/doubly-linked-list.ts:155</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="findGte" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagReadonly">Readonly</code> <span>find<wbr/>Gte</span><a href="#findGte" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -168,7 +170,7 @@
 <h5><span class="tsd-kind-parameter">element</span>: <span class="tsd-signature-type tsd-kind-type-parameter">T</span></h5></li></ul></div>
 <h4 class="tsd-returns-title">Returns <a href="../types/DLLNode.html" class="tsd-signature-type tsd-kind-type-alias">DLLNode</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type tsd-kind-type-parameter">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">[]</span></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/rfieve/doubly-linked-list/blob/9cf40c4/src/classes/doubly-linked-list.ts#L145">classes/doubly-linked-list.ts:145</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/rfieve/doubly-linked-list/blob/54fd22c/src/classes/doubly-linked-list.ts#L157">classes/doubly-linked-list.ts:157</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="findLt" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagReadonly">Readonly</code> <span>find<wbr/>Lt</span><a href="#findLt" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -181,7 +183,7 @@
 <h5><span class="tsd-kind-parameter">element</span>: <span class="tsd-signature-type tsd-kind-type-parameter">T</span></h5></li></ul></div>
 <h4 class="tsd-returns-title">Returns <a href="../types/DLLNode.html" class="tsd-signature-type tsd-kind-type-alias">DLLNode</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type tsd-kind-type-parameter">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">[]</span></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/rfieve/doubly-linked-list/blob/9cf40c4/src/classes/doubly-linked-list.ts#L147">classes/doubly-linked-list.ts:147</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/rfieve/doubly-linked-list/blob/54fd22c/src/classes/doubly-linked-list.ts#L159">classes/doubly-linked-list.ts:159</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="findLte" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagReadonly">Readonly</code> <span>find<wbr/>Lte</span><a href="#findLte" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -194,7 +196,7 @@
 <h5><span class="tsd-kind-parameter">element</span>: <span class="tsd-signature-type tsd-kind-type-parameter">T</span></h5></li></ul></div>
 <h4 class="tsd-returns-title">Returns <a href="../types/DLLNode.html" class="tsd-signature-type tsd-kind-type-alias">DLLNode</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type tsd-kind-type-parameter">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">[]</span></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/rfieve/doubly-linked-list/blob/9cf40c4/src/classes/doubly-linked-list.ts#L149">classes/doubly-linked-list.ts:149</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/rfieve/doubly-linked-list/blob/54fd22c/src/classes/doubly-linked-list.ts#L161">classes/doubly-linked-list.ts:161</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="findMany" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagReadonly">Readonly</code> <span>find<wbr/>Many</span><a href="#findMany" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -209,7 +211,7 @@
 <h5><code class="tsd-tag ts-flagOptional">Optional</code> <span class="tsd-kind-parameter">compare</span>: <a href="../types/CompareFunction.html" class="tsd-signature-type tsd-kind-type-alias">CompareFunction</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type tsd-kind-type-parameter">T</span><span class="tsd-signature-symbol">&gt;</span></h5></li></ul></div>
 <h4 class="tsd-returns-title">Returns <a href="../types/DLLNode.html" class="tsd-signature-type tsd-kind-type-alias">DLLNode</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type tsd-kind-type-parameter">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">[]</span></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/rfieve/doubly-linked-list/blob/9cf40c4/src/classes/doubly-linked-list.ts#L140">classes/doubly-linked-list.ts:140</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/rfieve/doubly-linked-list/blob/54fd22c/src/classes/doubly-linked-list.ts#L152">classes/doubly-linked-list.ts:152</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="findOne" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagReadonly">Readonly</code> <span>find<wbr/>One</span><a href="#findOne" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -224,7 +226,7 @@
 <h5><code class="tsd-tag ts-flagOptional">Optional</code> <span class="tsd-kind-parameter">compare</span>: <a href="../types/CompareFunction.html" class="tsd-signature-type tsd-kind-type-alias">CompareFunction</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type tsd-kind-type-parameter">T</span><span class="tsd-signature-symbol">&gt;</span></h5></li></ul></div>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><a href="../types/DLLNode.html" class="tsd-signature-type tsd-kind-type-alias">DLLNode</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type tsd-kind-type-parameter">T</span><span class="tsd-signature-symbol">&gt;</span></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/rfieve/doubly-linked-list/blob/9cf40c4/src/classes/doubly-linked-list.ts#L137">classes/doubly-linked-list.ts:137</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/rfieve/doubly-linked-list/blob/54fd22c/src/classes/doubly-linked-list.ts#L149">classes/doubly-linked-list.ts:149</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="hasNext" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagReadonly">Readonly</code> <span>has<wbr/>Next</span><a href="#hasNext" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -237,7 +239,15 @@
 <h5><span class="tsd-kind-parameter">element</span>: <span class="tsd-signature-type tsd-kind-type-parameter">T</span></h5></li></ul></div>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/rfieve/doubly-linked-list/blob/9cf40c4/src/classes/doubly-linked-list.ts#L131">classes/doubly-linked-list.ts:131</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/rfieve/doubly-linked-list/blob/54fd22c/src/classes/doubly-linked-list.ts#L143">classes/doubly-linked-list.ts:143</a></li></ul></aside></li></ul></section>
+<section class="tsd-panel tsd-member"><a id="hasNodes" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagReadonly">Readonly</code> <span>has<wbr/>Nodes</span><a href="#hasNodes" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
+<ul class="tsd-signatures">
+<li class="tsd-signature tsd-anchor-link" id="hasNodes.hasNodes-1"><span class="tsd-kind-call-signature">has<wbr/>Nodes</span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span><a href="#hasNodes.hasNodes-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
+<li class="tsd-description">
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4><aside class="tsd-sources">
+<ul>
+<li>Defined in <a href="https://github.com/rfieve/doubly-linked-list/blob/54fd22c/src/classes/doubly-linked-list.ts#L136">classes/doubly-linked-list.ts:136</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="hasPrev" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagReadonly">Readonly</code> <span>has<wbr/>Prev</span><a href="#hasPrev" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -250,7 +260,7 @@
 <h5><span class="tsd-kind-parameter">element</span>: <span class="tsd-signature-type tsd-kind-type-parameter">T</span></h5></li></ul></div>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/rfieve/doubly-linked-list/blob/9cf40c4/src/classes/doubly-linked-list.ts#L126">classes/doubly-linked-list.ts:126</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/rfieve/doubly-linked-list/blob/54fd22c/src/classes/doubly-linked-list.ts#L138">classes/doubly-linked-list.ts:138</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="insert" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagReadonly">Readonly</code> <span>insert</span><a href="#insert" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -265,7 +275,7 @@
 <h5><code class="tsd-tag ts-flagOptional">Optional</code> <span class="tsd-kind-parameter">compare</span>: <a href="../types/CompareFunction.html" class="tsd-signature-type tsd-kind-type-alias">CompareFunction</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type tsd-kind-type-parameter">T</span><span class="tsd-signature-symbol">&gt;</span></h5></li></ul></div>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/rfieve/doubly-linked-list/blob/9cf40c4/src/classes/doubly-linked-list.ts#L65">classes/doubly-linked-list.ts:65</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/rfieve/doubly-linked-list/blob/54fd22c/src/classes/doubly-linked-list.ts#L75">classes/doubly-linked-list.ts:75</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="pop" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>pop</span><a href="#pop" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -278,7 +288,7 @@
 <h5><span class="tsd-kind-parameter">amount</span>: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 1</span></h5></li></ul></div>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/rfieve/doubly-linked-list/blob/9cf40c4/src/classes/doubly-linked-list.ts#L70">classes/doubly-linked-list.ts:70</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/rfieve/doubly-linked-list/blob/54fd22c/src/classes/doubly-linked-list.ts#L80">classes/doubly-linked-list.ts:80</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="push" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagReadonly">Readonly</code> <span>push</span><a href="#push" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -291,7 +301,7 @@
 <h5><span class="tsd-kind-parameter">elements</span>: <span class="tsd-signature-type tsd-kind-type-parameter">T</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type tsd-kind-type-parameter">T</span><span class="tsd-signature-symbol">[]</span></h5></li></ul></div>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/rfieve/doubly-linked-list/blob/9cf40c4/src/classes/doubly-linked-list.ts#L55">classes/doubly-linked-list.ts:55</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/rfieve/doubly-linked-list/blob/54fd22c/src/classes/doubly-linked-list.ts#L65">classes/doubly-linked-list.ts:65</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="reduce" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagReadonly">Readonly</code> <span>reduce</span><a href="#reduce" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -311,7 +321,7 @@
 <h5><span class="tsd-kind-parameter">init</span>: <span class="tsd-signature-type tsd-kind-type-parameter">U</span></h5></li></ul></div>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type tsd-kind-type-parameter">U</span></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/rfieve/doubly-linked-list/blob/9cf40c4/src/classes/doubly-linked-list.ts#L122">classes/doubly-linked-list.ts:122</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/rfieve/doubly-linked-list/blob/54fd22c/src/classes/doubly-linked-list.ts#L132">classes/doubly-linked-list.ts:132</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="remove" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagReadonly">Readonly</code> <span>remove</span><a href="#remove" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -326,7 +336,7 @@
 <h5><code class="tsd-tag ts-flagOptional">Optional</code> <span class="tsd-kind-parameter">compare</span>: <a href="../types/CompareFunction.html" class="tsd-signature-type tsd-kind-type-alias">CompareFunction</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type tsd-kind-type-parameter">T</span><span class="tsd-signature-symbol">&gt;</span></h5></li></ul></div>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/rfieve/doubly-linked-list/blob/9cf40c4/src/classes/doubly-linked-list.ts#L80">classes/doubly-linked-list.ts:80</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/rfieve/doubly-linked-list/blob/54fd22c/src/classes/doubly-linked-list.ts#L90">classes/doubly-linked-list.ts:90</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="shift" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>shift</span><a href="#shift" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -339,7 +349,7 @@
 <h5><span class="tsd-kind-parameter">amount</span>: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 1</span></h5></li></ul></div>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/rfieve/doubly-linked-list/blob/9cf40c4/src/classes/doubly-linked-list.ts#L75">classes/doubly-linked-list.ts:75</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/rfieve/doubly-linked-list/blob/54fd22c/src/classes/doubly-linked-list.ts#L85">classes/doubly-linked-list.ts:85</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="sort" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagReadonly">Readonly</code> <span>sort</span><a href="#sort" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -352,7 +362,7 @@
 <h5><code class="tsd-tag ts-flagOptional">Optional</code> <span class="tsd-kind-parameter">compare</span>: <a href="../types/CompareFunction.html" class="tsd-signature-type tsd-kind-type-alias">CompareFunction</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type tsd-kind-type-parameter">T</span><span class="tsd-signature-symbol">&gt;</span></h5></li></ul></div>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/rfieve/doubly-linked-list/blob/9cf40c4/src/classes/doubly-linked-list.ts#L85">classes/doubly-linked-list.ts:85</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/rfieve/doubly-linked-list/blob/54fd22c/src/classes/doubly-linked-list.ts#L95">classes/doubly-linked-list.ts:95</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="toArrayInOrder" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagReadonly">Readonly</code> <span>to<wbr/>Array<wbr/>In<wbr/>Order</span><a href="#toArrayInOrder" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -360,7 +370,7 @@
 <li class="tsd-description">
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type tsd-kind-type-parameter">T</span><span class="tsd-signature-symbol">[]</span></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/rfieve/doubly-linked-list/blob/9cf40c4/src/classes/doubly-linked-list.ts#L112">classes/doubly-linked-list.ts:112</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/rfieve/doubly-linked-list/blob/54fd22c/src/classes/doubly-linked-list.ts#L122">classes/doubly-linked-list.ts:122</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="toArrayInOrderReverse" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagReadonly">Readonly</code> <span>to<wbr/>Array<wbr/>In<wbr/>Order<wbr/>Reverse</span><a href="#toArrayInOrderReverse" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -368,7 +378,7 @@
 <li class="tsd-description">
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type tsd-kind-type-parameter">T</span><span class="tsd-signature-symbol">[]</span></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/rfieve/doubly-linked-list/blob/9cf40c4/src/classes/doubly-linked-list.ts#L114">classes/doubly-linked-list.ts:114</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/rfieve/doubly-linked-list/blob/54fd22c/src/classes/doubly-linked-list.ts#L124">classes/doubly-linked-list.ts:124</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="toArrayMapInOrder" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagReadonly">Readonly</code> <span>to<wbr/>Array<wbr/>Map<wbr/>In<wbr/>Order</span><a href="#toArrayMapInOrder" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -386,7 +396,7 @@
 <h5><span class="tsd-kind-parameter">mapper</span>: <a href="../types/MapFunction.html" class="tsd-signature-type tsd-kind-type-alias">MapFunction</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type tsd-kind-type-parameter">T</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type tsd-kind-type-parameter">U</span><span class="tsd-signature-symbol">&gt;</span></h5></li></ul></div>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type tsd-kind-type-parameter">U</span><span class="tsd-signature-symbol">[]</span></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/rfieve/doubly-linked-list/blob/9cf40c4/src/classes/doubly-linked-list.ts#L116">classes/doubly-linked-list.ts:116</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/rfieve/doubly-linked-list/blob/54fd22c/src/classes/doubly-linked-list.ts#L126">classes/doubly-linked-list.ts:126</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="toArrayMapInOrderReverse" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagReadonly">Readonly</code> <span>to<wbr/>Array<wbr/>Map<wbr/>In<wbr/>Order<wbr/>Reverse</span><a href="#toArrayMapInOrderReverse" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -404,7 +414,7 @@
 <h5><span class="tsd-kind-parameter">mapper</span>: <a href="../types/MapFunction.html" class="tsd-signature-type tsd-kind-type-alias">MapFunction</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type tsd-kind-type-parameter">T</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type tsd-kind-type-parameter">U</span><span class="tsd-signature-symbol">&gt;</span></h5></li></ul></div>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type tsd-kind-type-parameter">U</span><span class="tsd-signature-symbol">[]</span></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/rfieve/doubly-linked-list/blob/9cf40c4/src/classes/doubly-linked-list.ts#L119">classes/doubly-linked-list.ts:119</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/rfieve/doubly-linked-list/blob/54fd22c/src/classes/doubly-linked-list.ts#L129">classes/doubly-linked-list.ts:129</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="traverseFrom" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagReadonly">Readonly</code> <span>traverse<wbr/>From</span><a href="#traverseFrom" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -432,7 +442,7 @@
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4></li></ul></li></ul></li></ul></div>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/rfieve/doubly-linked-list/blob/9cf40c4/src/classes/doubly-linked-list.ts#L92">classes/doubly-linked-list.ts:92</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/rfieve/doubly-linked-list/blob/54fd22c/src/classes/doubly-linked-list.ts#L102">classes/doubly-linked-list.ts:102</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="traverseInOrder" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagReadonly">Readonly</code> <span>traverse<wbr/>In<wbr/>Order</span><a href="#traverseInOrder" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -456,7 +466,7 @@
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4></li></ul></li></ul></li></ul></div>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/rfieve/doubly-linked-list/blob/9cf40c4/src/classes/doubly-linked-list.ts#L101">classes/doubly-linked-list.ts:101</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/rfieve/doubly-linked-list/blob/54fd22c/src/classes/doubly-linked-list.ts#L111">classes/doubly-linked-list.ts:111</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="traverseInOrderReverse" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagReadonly">Readonly</code> <span>traverse<wbr/>In<wbr/>Order<wbr/>Reverse</span><a href="#traverseInOrderReverse" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -480,7 +490,7 @@
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4></li></ul></li></ul></li></ul></div>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/rfieve/doubly-linked-list/blob/9cf40c4/src/classes/doubly-linked-list.ts#L106">classes/doubly-linked-list.ts:106</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/rfieve/doubly-linked-list/blob/54fd22c/src/classes/doubly-linked-list.ts#L116">classes/doubly-linked-list.ts:116</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="unshift" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagReadonly">Readonly</code> <span>unshift</span><a href="#unshift" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -493,7 +503,25 @@
 <h5><span class="tsd-kind-parameter">elements</span>: <span class="tsd-signature-type tsd-kind-type-parameter">T</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type tsd-kind-type-parameter">T</span><span class="tsd-signature-symbol">[]</span></h5></li></ul></div>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/rfieve/doubly-linked-list/blob/9cf40c4/src/classes/doubly-linked-list.ts#L60">classes/doubly-linked-list.ts:60</a></li></ul></aside></li></ul></section></section></div>
+<li>Defined in <a href="https://github.com/rfieve/doubly-linked-list/blob/54fd22c/src/classes/doubly-linked-list.ts#L70">classes/doubly-linked-list.ts:70</a></li></ul></aside></li></ul></section>
+<section class="tsd-panel tsd-member"><a id="fromArray" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagStatic">Static</code> <span>from<wbr/>Array</span><a href="#fromArray" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
+<ul class="tsd-signatures">
+<li class="tsd-signature tsd-anchor-link" id="fromArray.fromArray-1"><span class="tsd-kind-call-signature">from<wbr/>Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type tsd-kind-type-parameter">K</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">elements</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="DoublyLinkedList.html" class="tsd-signature-type tsd-kind-class">DoublyLinkedList</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type tsd-kind-type-parameter">K</span><span class="tsd-signature-symbol">&gt;</span><a href="#fromArray.fromArray-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
+<li class="tsd-description">
+<section class="tsd-panel">
+<h4>Type Parameters</h4>
+<ul class="tsd-type-parameter-list">
+<li>
+<h4><span class="tsd-kind-type-parameter">K</span></h4></li></ul></section>
+<div class="tsd-parameters">
+<h4 class="tsd-parameters-title">Parameters</h4>
+<ul class="tsd-parameter-list">
+<li>
+<h5><span class="tsd-kind-parameter">elements</span>: <span class="tsd-signature-type tsd-kind-type-parameter">K</span><span class="tsd-signature-symbol">[]</span></h5></li></ul></div>
+<h4 class="tsd-returns-title">Returns <a href="DoublyLinkedList.html" class="tsd-signature-type tsd-kind-class">DoublyLinkedList</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type tsd-kind-type-parameter">K</span><span class="tsd-signature-symbol">&gt;</span></h4><aside class="tsd-sources">
+<ul>
+<li>Defined in <a href="https://github.com/rfieve/doubly-linked-list/blob/54fd22c/src/classes/doubly-linked-list.ts#L58">classes/doubly-linked-list.ts:58</a></li></ul></aside></li></ul></section></section></div>
 <div class="col-sidebar">
 <div class="page-menu">
 <div class="tsd-navigation settings">
@@ -527,6 +555,7 @@
 <li><a href="#findMany" class=""><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>find<wbr/>Many</span></a></li>
 <li><a href="#findOne" class=""><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>find<wbr/>One</span></a></li>
 <li><a href="#hasNext" class=""><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>has<wbr/>Next</span></a></li>
+<li><a href="#hasNodes" class=""><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>has<wbr/>Nodes</span></a></li>
 <li><a href="#hasPrev" class=""><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>has<wbr/>Prev</span></a></li>
 <li><a href="#insert" class=""><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>insert</span></a></li>
 <li><a href="#pop" class=""><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>pop</span></a></li>
@@ -542,7 +571,8 @@
 <li><a href="#traverseFrom" class=""><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>traverse<wbr/>From</span></a></li>
 <li><a href="#traverseInOrder" class=""><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>traverse<wbr/>In<wbr/>Order</span></a></li>
 <li><a href="#traverseInOrderReverse" class=""><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>traverse<wbr/>In<wbr/>Order<wbr/>Reverse</span></a></li>
-<li><a href="#unshift" class=""><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>unshift</span></a></li></ul></div></details></div>
+<li><a href="#unshift" class=""><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>unshift</span></a></li>
+<li><a href="#fromArray" class=""><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>from<wbr/>Array</span></a></li></ul></div></details></div>
 <div class="site-menu">
 <nav class="tsd-navigation"><a href="../modules.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-1"></use></svg><span>@romainfieve/doubly-linked-list</span></a>
 <ul class="tsd-small-nested-navigation" id="tsd-nav-container" data-base="..">
@@ -553,6 +583,7 @@
 <li><a href="../types/DLLNode.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2097152"></use></svg>DLLNode</a></li>
 <li><a href="../types/DLLNodeWithNext.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2097152"></use></svg>DLLNodeWithNext</a></li>
 <li><a href="../types/DLLNodeWithPrev.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2097152"></use></svg>DLLNodeWithPrev</a></li>
+<li><a href="../types/DLLWithNodes.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2097152"></use></svg>DLLWithNodes</a></li>
 <li><a href="../types/MapFunction.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2097152"></use></svg>MapFunction</a></li>
 <li><a href="../types/ReduceFunction.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2097152"></use></svg>ReduceFunction</a></li>
 <li><a href="../types/TraverseCallback.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2097152"></use></svg>TraverseCallback</a></li>
@@ -566,7 +597,6 @@
 <li><a href="../functions/findMany.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-64"></use></svg>findMany</a></li>
 <li><a href="../functions/findNextGte.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-64"></use></svg>findNextGte</a></li>
 <li><a href="../functions/findOne.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-64"></use></svg>findOne</a></li>
-<li><a href="../functions/hasNext.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-64"></use></svg>hasNext</a></li>
 <li>Loading...</li></ul></nav></div></div></div>
 <div class="tsd-generator">
 <p>Generated using <a href="https://typedoc.org/" rel="noopener" target="_blank">TypeDoc</a></p></div>

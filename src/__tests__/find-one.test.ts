@@ -1,4 +1,5 @@
 import { makeCompareUtils } from '../functions/make-compare-utils';
+import { makeEmptyDLL } from '../helpers/make-dll';
 import { mockedOrderedList } from './_mocks';
 
 describe('findOne', () => {
@@ -13,6 +14,11 @@ describe('findOne', () => {
 
     it('should return undefined when no node matches', () => {
         const node = bound(mockedOrderedList, 100);
+        expect(node?.data).toBeUndefined();
+    });
+
+    it('should return undefined when the list is empty', () => {
+        const node = bound(makeEmptyDLL(), 100);
         expect(node?.data).toBeUndefined();
     });
 });

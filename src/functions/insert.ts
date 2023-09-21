@@ -1,8 +1,15 @@
-import { CompareFunction, DLL, DLLNode } from '../types';
+import { CompareFunction, DLL, DLLNode, DLLWithNodes } from '../types';
 import { attachNext, attachPrev } from './attach';
 import { findNextGte } from './find-next-gte';
+import { hasNodes } from './has-nodes';
+import { toDLL } from './to-doubly-linked-list';
 
-function insertElement<T>(dll: DLL<T>, element: T, compare: CompareFunction<T>, from?: DLLNode<T>) {
+function insertElement<T>(
+    dll: DLLWithNodes<T>,
+    element: T,
+    compare: CompareFunction<T>,
+    from?: DLLNode<T>
+) {
     dll.length++;
 
     const target = findNextGte(from || dll.head, element, compare) ?? dll.tail;
@@ -16,7 +23,7 @@ function insertElement<T>(dll: DLL<T>, element: T, compare: CompareFunction<T>, 
         : attach(target, element);
 }
 
-function insertElements<T>(dll: DLL<T>, elements: T[], compare: CompareFunction<T>) {
+function insertElements<T>(dll: DLLWithNodes<T>, elements: T[], compare: CompareFunction<T>) {
     const sorted = elements.slice().sort(compare);
 
     let prev;
@@ -34,7 +41,13 @@ function insertElements<T>(dll: DLL<T>, elements: T[], compare: CompareFunction<
  * @returns The doubly linked list.
  */
 export function insert<T>(dll: DLL<T>, elements: T | T[], compare: CompareFunction<T>): DLL<T> {
-    if (Array.isArray(elements)) {
+    const isArray = Array.isArray(elements);
+
+    if (!hasNodes(dll)) {
+        return Object.assign(dll, toDLL(isArray ? elements : [elements], compare));
+    }
+
+    if (isArray) {
         insertElements(dll, elements, compare);
     } else {
         insertElement(dll, elements, compare);

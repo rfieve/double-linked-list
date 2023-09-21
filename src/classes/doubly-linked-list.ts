@@ -9,12 +9,15 @@ import { hasPrev as hasPrevNode } from '../functions/has-prev';
 import { insert as insertNode } from '../functions/insert';
 import { pop as popNode } from '../functions/pop';
 import { push as pushNode } from '../functions/push';
+import { reduce as reduceNodes } from '../functions/reduce';
 import { remove as removeNode } from '../functions/remove';
 import { shift as shiftNode } from '../functions/shift';
 import { sort as sortNodes } from '../functions/sort';
 import {
     toArrayInOrder as toArrayListInOrder,
     toArrayInOrderReverse as toArrayListInOrderReverse,
+    toArrayMapInOrder as toArrayListMapInOrder,
+    toArrayMapInOrderReverse as toArrayListMapInOrderReverse,
 } from '../functions/to-array';
 import { toDLL } from '../functions/to-doubly-linked-list';
 import { traverseFrom as traverseListFrom } from '../functions/traverse-from';
@@ -23,7 +26,7 @@ import {
     traverseInOrderReverse as traverseListInOrderReverse,
 } from '../functions/traverse-in-order';
 import { unshift as unshiftNode } from '../functions/unshift';
-import { CompareFunction, Direction, DLL, DLLNode } from '../types';
+import { CompareFunction, Direction, DLL, DLLNode, MapFunction, ReduceFunction } from '../types';
 
 export class DoublyLinkedList<T> {
     private l! : DLL<T>;
@@ -105,10 +108,19 @@ export class DoublyLinkedList<T> {
         return this;
     };
 
-    // To array conversions
+    // Conversions
     public readonly toArrayInOrder = () => toArrayListInOrder(this.l);
 
     public readonly toArrayInOrderReverse = () => toArrayListInOrderReverse(this.l);
+
+    public readonly toArrayMapInOrder = <U>(mapper: MapFunction<T, U>) =>
+        toArrayListMapInOrder(this.l, mapper);
+
+    public readonly toArrayMapInOrderReverse = <U>(mapper: MapFunction<T, U>) =>
+        toArrayListMapInOrderReverse(this.l, mapper);
+
+    public readonly reduce = <U>(reducer: ReduceFunction<T, U>, init: U) =>
+        reduceNodes(this.l, reducer, init);
 
     // Assessments
     public readonly hasPrev = (element: T) => {

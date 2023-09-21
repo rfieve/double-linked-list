@@ -13,10 +13,16 @@ export { insert, makeInsert } from './functions/insert';
 export { makeCompareUtils } from './functions/make-compare-utils';
 export { pop } from './functions/pop';
 export { push } from './functions/push';
+export { reduce } from './functions/reduce';
 export { makeRemove, remove } from './functions/remove';
 export { shift } from './functions/shift';
 export { makeSort, sort } from './functions/sort';
-export { toArrayInOrder, toArrayInOrderReverse } from './functions/to-array';
+export {
+    toArrayInOrder,
+    toArrayInOrderReverse,
+    toArrayMapInOrder,
+    toArrayMapInOrderReverse,
+} from './functions/to-array';
 export { makeToDLL, toDLL } from './functions/to-doubly-linked-list';
 export { traverseFrom } from './functions/traverse-from';
 export { traverseInOrder, traverseInOrderReverse } from './functions/traverse-in-order';
@@ -27,4 +33,7 @@ export type {
     DLLNode,
     DLLNodeWithNext,
     DLLNodeWithPrev,
+    MapFunction,
+    ReduceFunction,
+    TraverseCallback,
 } from './types';

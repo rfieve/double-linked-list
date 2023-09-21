@@ -8,7 +8,7 @@ import { toDLL } from './to-doubly-linked-list';
  * @param compare The compare function.
  * @returns The sorted list.
  */
-export function sort<T>(dll: DLL<T>, compare: CompareFunction<T>): DLL<T> {
+export function sort<T>(dll: DLL<T>, compare: CompareFunction<T>) {
     return toDLL(toArrayInOrder(dll), compare);
 }
 

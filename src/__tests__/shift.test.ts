@@ -2,7 +2,7 @@ import { shift } from '../functions/shift';
 import { toDLL } from '../functions/to-doubly-linked-list';
 import { mockedArray } from './_mocks';
 
-describe('sort', () => {
+describe('shift', () => {
     it('should shift a dll correctly', () => {
         const dll = toDLL(mockedArray);
 

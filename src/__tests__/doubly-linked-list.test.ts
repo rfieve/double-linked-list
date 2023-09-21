@@ -1,5 +1,12 @@
 import { DoublyLinkedList } from '../classes/doubly-linked-list';
-import { compare, mockedArray, mockedOrderedList, mockedUnorderedList } from './_mocks';
+import {
+    compare,
+    mapToString,
+    mockedArray,
+    mockedArrayInOrder,
+    mockedOrderedList,
+    mockedUnorderedList,
+} from './_mocks';
 
 describe('attach', () => {
     let dll: DoublyLinkedList<number>;
@@ -89,5 +96,41 @@ describe('attach', () => {
         list.sort((a: number, b: number) => b - a);
         expect(list.head.data).toBe(89);
         expect(list.tail.data).toBe(1);
+    });
+
+    it('should toArrayInOrder', () => {
+        const list = dll.sort(compare);
+        expect(list.toArrayInOrder()).toEqual(mockedArrayInOrder);
+    });
+
+    it('should toArrayInOrderReverse', () => {
+        const list = dll.sort(compare);
+        expect(list.toArrayInOrderReverse()).toEqual(mockedArrayInOrder.slice().reverse());
+    });
+
+    it('should toArrayMapInOrder', () => {
+        const list = dll.sort(compare);
+        expect(list.toArrayMapInOrder(mapToString)).toEqual([
+            '2',
+            '5',
+            '10',
+            '13',
+            '32',
+            '50',
+            '89',
+        ]);
+    });
+
+    it('should toArrayMapInOrderReverse', () => {
+        const list = dll.sort(compare);
+        expect(list.toArrayMapInOrderReverse(mapToString)).toEqual([
+            '89',
+            '50',
+            '32',
+            '13',
+            '10',
+            '5',
+            '2',
+        ]);
     });
 });

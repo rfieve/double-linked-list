@@ -17,6 +17,14 @@ export enum Direction {
  */
 export type CompareFunction<T> = (current: T, compared: T) => number;
 
+export type MapFunction<T, U> = (node: DLLNode<T>, index: number) => U;
+
+export type ReduceFunction<T, U> = (acc: U, curr: DLLNode<T>, index: number) => U;
+
+export type TraverseCallback<T> = (node: DLLNode<T>) => void;
+
+export type TraverseFunction<T> = (dll: DLL<T>, cb: TraverseCallback<T>) => void;
+
 export type DLLNode<T> = {
     data              : T;
     [Direction.Next]? : DLLNode<T>;

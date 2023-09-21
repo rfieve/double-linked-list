@@ -1,4 +1,4 @@
-import { Direction, DLL, DLLNode } from '../types';
+import { Direction, DLL, TraverseCallback } from '../types';
 import { traverseFrom } from './traverse-from';
 
 /**
@@ -7,7 +7,7 @@ import { traverseFrom } from './traverse-from';
  * @param dll the doubly linked list to traverse.
  * @param cb the callback to invoke on each traversed node.
  */
-export function traverseInOrder<T>(dll: DLL<T>, cb: (node: DLLNode<T>) => void) {
+export function traverseInOrder<T>(dll: DLL<T>, cb: TraverseCallback<T>) {
     traverseFrom(dll.head, Direction.Next, cb);
 }
 
@@ -17,6 +17,6 @@ export function traverseInOrder<T>(dll: DLL<T>, cb: (node: DLLNode<T>) => void) 
  * @param dll the doubly linked list to traverse.
  * @param cb the callback to invoke on each traversed node.
  */
-export function traverseInOrderReverse<T>(dll: DLL<T>, cb: (node: DLLNode<T>) => void) {
+export function traverseInOrderReverse<T>(dll: DLL<T>, cb: TraverseCallback<T>) {
     traverseFrom(dll.tail, Direction.Prev, cb);
 }

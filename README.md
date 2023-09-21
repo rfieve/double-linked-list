@@ -17,6 +17,7 @@ A zero-dependency TypeScript library to work with doubly linked lists and arrays
         -   [`find(Gt/Gte/Lt/Lte)`](#findgtgteltlte)
         -   [`traverse`](#traverse)
         -   [`toArray`](#toarray)
+        -   [`reduce`](#reduce)
         -   [`hasPrev`, `hasNext`](#hasprev-hasnext)
         -   [`makeCompareUtils`](#makecompareutils)
         -   [The infamous `DoublyLinkedList` class](#the-infamous-doublylinkedlist-class)
@@ -235,10 +236,12 @@ traverseInOrderReverse(list, collect(elements));
 
 ### `toArray`
 
-Converts the given doubly linked list to an array sorted as traversed:
+Converts the given doubly linked list to an array sorted as traversed, with an optional mapper:
 
 -   `toArrayInOrder`
 -   `toArrayInOrderReverse`
+-   `toArrayMapInOrder`
+-   `toArrayMapInOrderReverse`
 
 ```typescript
 // Schema of "list"
@@ -248,6 +251,25 @@ const a = toArrayInOrder(list);
 // [2, 5, 10, 13, 32, 50, 89]
 const b = toArrayInOrderReverse(list);
 // [89, 50, 32, 13, 10, 5, 2]
+
+const mapper = (node: DLLNode, index: number) => node.data * index;
+const c = toArrayMapInOrder(list, mapper);
+// [0, 5, 20, 39, 128, 250, 534]
+```
+
+---
+
+### `reduce`
+
+Reduces the given doubly linked list to anything
+
+```typescript
+// Schema of "list"
+// 2 <-> 5 <-> 10 <-> 13 <-> 32 <-> 50 <-> 89
+// 2 8
+const reducer = (acc: number, node: DLLNode, index: number) => acc + node.data + index;
+const a = reduce(list, reducer, 0); // 222
+//
 ```
 
 ---

@@ -2,7 +2,7 @@ import { pop } from '../functions/pop';
 import { toDLL } from '../functions/to-doubly-linked-list';
 import { mockedArray } from './_mocks';
 
-describe('sort', () => {
+describe('pop', () => {
     it('should pop a dll correctly', () => {
         const dll = toDLL(mockedArray);
 

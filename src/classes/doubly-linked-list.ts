@@ -5,6 +5,7 @@ import { findLte as findLteNode } from '../functions/find-lte';
 import { findMany as findManyNodes } from '../functions/find-many';
 import { findOne as findOneNode } from '../functions/find-one';
 import { hasNext as hasNextNode } from '../functions/has-next';
+import { hasNodes as hasNodesList } from '../functions/has-nodes';
 import { hasPrev as hasPrevNode } from '../functions/has-prev';
 import { insert as insertNode } from '../functions/insert';
 import { pop as popNode } from '../functions/pop';
@@ -28,14 +29,17 @@ import {
 import { unshift as unshiftNode } from '../functions/unshift';
 import { CompareFunction, Direction, DLL, DLLNode, MapFunction, ReduceFunction } from '../types';
 
-export class DoublyLinkedList<T> {
-    private l! : DLL<T>;
+function defaultCompare() {
+    return 1;
+}
 
+export class DoublyLinkedList<T> {
+    private l!       : DLL<T>;
     private compare! : CompareFunction<T>;
 
-    constructor(elements: T[], compare = (() => 1) as CompareFunction<T>) {
-        this.compare = compare;
+    constructor(elements = [] as T[], compare = defaultCompare as CompareFunction<T>) {
         this.l = toDLL(elements, compare);
+        this.compare = compare;
     }
 
     public get dll() {
@@ -50,6 +54,12 @@ export class DoublyLinkedList<T> {
     public get tail() {
         return this.l.tail;
     }
+
+    public static fromArray = <K>(elements: K[]) => {
+        const dll = new DoublyLinkedList<K>();
+        dll.l = toDLL(elements);
+        return dll;
+    };
 
     // Updates
     public readonly push = (elements: T | T[]) => {
@@ -123,6 +133,8 @@ export class DoublyLinkedList<T> {
         reduceNodes(this.l, reducer, init);
 
     // Assessments
+    public readonly hasNodes = () => hasNodesList(this.l);
+
     public readonly hasPrev = (element: T) => {
         const node = findOneNode(this.l, this.compare, element);
         return node && hasPrevNode(node);

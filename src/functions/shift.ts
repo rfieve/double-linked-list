@@ -9,7 +9,7 @@ import { DLL } from '../types';
 export function shift<T>(dll: DLL<T>, amount = 1): DLL<T> {
     let count = amount;
 
-    while (count > 0 && dll.head.next) {
+    while (count > 0 && dll.head?.next) {
         dll.length--;
         dll.head = dll.head.next;
         count--;

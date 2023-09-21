@@ -1,12 +1,13 @@
 import { insert, makeInsert } from '../functions/insert';
-import { DLL, DLLNode } from '../types';
+import { makeEmptyDLL } from '../helpers/make-dll';
+import { DLL, DLLNode, DLLWithNodes } from '../types';
 import { compare } from './_mocks';
 
 describe('insert', () => {
     let prev: DLLNode<number>;
     let curr: DLLNode<number>;
     let next: DLLNode<number>;
-    let dll: DLL<number>;
+    let dll: DLLWithNodes<number>;
 
     const bound = makeInsert(compare);
 
@@ -64,5 +65,37 @@ describe('insert', () => {
         expect(dll.head).toBe(prev);
         expect(dll.tail.prev).toBe(next);
         expect(dll.tail.data).toBe(3);
+    });
+
+    it('should insert one element to an empty list correctly', () => {
+        const empty: DLL<number> = makeEmptyDLL();
+
+        insert(empty, 1, compare);
+        insert(empty, 2, compare);
+        insert(empty, 3, compare);
+
+        expect(empty.length).toEqual(3);
+        expect(empty.head?.data).toBe(1);
+        expect(empty.head?.next?.data).toBe(2);
+        expect(empty.head?.next?.next?.data).toBe(3);
+
+        expect(empty.tail?.data).toBe(3);
+        expect(empty.tail?.prev?.data).toBe(2);
+        expect(empty.tail?.prev?.prev?.data).toBe(1);
+    });
+
+    it('should insert multiple elements to an empty list correctly', () => {
+        const empty: DLL<number> = makeEmptyDLL();
+
+        insert(empty, [1, 2, 3], compare);
+
+        expect(empty.length).toEqual(3);
+        expect(empty.head?.data).toBe(1);
+        expect(empty.head?.next?.data).toBe(2);
+        expect(empty.head?.next?.next?.data).toBe(3);
+
+        expect(empty.tail?.data).toBe(3);
+        expect(empty.tail?.prev?.data).toBe(2);
+        expect(empty.tail?.prev?.prev?.data).toBe(1);
     });
 });

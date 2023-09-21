@@ -13,12 +13,13 @@ A zero-dependency TypeScript library to work with doubly linked lists and arrays
         -   [`unshift`, `insert`, `push`](#unshift-insert-push)
         -   [`shit`, `remove`, `pop`](#shit-remove-pop)
         -   [`sort`](#sort)
+        -   [`map`](#map)
+        -   [`reduce`](#reduce)
         -   [`findOne`, `findMany`](#findone-findmany)
         -   [`find(Gt/Gte/Lt/Lte)`](#findgtgteltlte)
         -   [`traverse`](#traverse)
         -   [`toArray`](#toarray)
-        -   [`reduce`](#reduce)
-        -   [`hasPrev`, `hasNext`](#hasprev-hasnext)
+        -   [`hasNodes`, `hasPrev`, `hasNext`](#hasnodes-hasprev-hasnext)
         -   [`makeCompareUtils`](#makecompareutils)
         -   [The infamous `DoublyLinkedList` class](#the-infamous-doublylinkedlist-class)
 
@@ -161,6 +162,35 @@ const ordered = sort(reversed, (a: number, b: number) => a - b);
 
 ---
 
+### `map`
+
+Maps the given doubly linked list nodes' data to anything.
+
+```typescript
+// Schema of "list"
+// 2 <-> 5 <-> 10 <-> 13 <-> 32 <-> 50 <-> 89
+
+const mapper = (node: DLLNode, index: number) => `${node.data}[${index}]`;
+const a = map(list, mapper);
+// '2[0]' <-> '5[1]' <-> '10[2]' <-> '13[3]' <-> '32[4]' <-> '50[5]' <-> '89[6]'
+```
+
+---
+
+### `reduce`
+
+Reduces the given doubly linked list to anything.
+
+```typescript
+// Schema of "list"
+// 2 <-> 5 <-> 10 <-> 13 <-> 32 <-> 50 <-> 89
+
+const reducer = (acc: number, node: DLLNode, index: number) => acc + node.data + index;
+const a = reduce(list, reducer, 0); // 222
+```
+
+---
+
 ### `findOne`, `findMany`
 
 Finds the first (`findOne`) or all (`findMany`) the matching node(s) into the given doubly linked list with the given compare function.
@@ -259,27 +289,16 @@ const c = toArrayMapInOrder(list, mapper);
 
 ---
 
-### `reduce`
+### `hasNodes`, `hasPrev`, `hasNext`
 
-Reduces the given doubly linked list to anything
-
-```typescript
-// Schema of "list"
-// 2 <-> 5 <-> 10 <-> 13 <-> 32 <-> 50 <-> 89
-
-const reducer = (acc: number, node: DLLNode, index: number) => acc + node.data + index;
-const a = reduce(list, reducer, 0); // 222
-```
-
----
-
-### `hasPrev`, `hasNext`
-
+Assesses if the list contains nodes `hasNodes`.
 Assesses if the given node has a prev node (`hasPrev`) or a next node (`hasNext`).
 
 ```typescript
 // Schema of "list"
 // 2 <-> 5 <-> 10 <-> 13 <-> 32 <-> 50 <-> 89
+
+const isNonEmpty = hasNodes(list); // true
 
 const hasPrevA = hasPrev(list.tail); // true
 const hasPrevB = hasPrev(list.head); // false

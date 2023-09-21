@@ -40,7 +40,9 @@ export type DLLNodeWithNext<T> = Omit<DLLNode<T>, Direction.Next> & {
 };
 
 export type DLL<T> = {
-    head   : Omit<DLLNode<T>, Direction.Prev>;
+    head?  : Omit<DLLNode<T>, Direction.Prev>;
     length : number;
-    tail   : Omit<DLLNode<T>, Direction.Next>;
+    tail?  : Omit<DLLNode<T>, Direction.Next>;
 };
+
+export type DLLWithNodes<T> = Required<DLL<T>>;

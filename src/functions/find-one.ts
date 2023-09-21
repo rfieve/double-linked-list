@@ -1,5 +1,6 @@
 import { CompareFunction, DLL, DLLNode } from '../types';
 import { hasNext } from './has-next';
+import { hasNodes } from './has-nodes';
 
 /**
  * Finds a given element into the given doubly linked list with the given compare function.
@@ -14,6 +15,10 @@ export function findOne<T>(
     element: T,
     from?: DLLNode<T>
 ): DLLNode<T> | undefined {
+    if (!hasNodes(dll)) {
+        return undefined;
+    }
+
     const currentNode: DLLNode<T> | undefined = from || dll.head;
 
     const comparison = compare(element, currentNode.data);

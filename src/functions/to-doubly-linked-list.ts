@@ -1,4 +1,5 @@
-import { CompareFunction, DLL } from '../types';
+import { makeEmptyDLL, makeOneNodeDLL, makeTwoNodesDLL } from '../helpers/make-dll';
+import { CompareFunction } from '../types';
 import { insert } from './insert';
 import { push } from './push';
 
@@ -8,12 +9,19 @@ import { push } from './push';
  * @param compare The compare function.
  * @returns The elements of the elements array organized as a doubly linked list.
  */
-export function toDLL<T>(elements: T[], compare?: CompareFunction<T>): DLL<T> {
+export function toDLL<T>(elements = [] as T[], compare?: CompareFunction<T>) {
+    if (elements.length === 0) {
+        return makeEmptyDLL();
+    }
+
+    if (elements.length === 1) {
+        return makeOneNodeDLL(elements[0]);
+    }
+
     const copied = elements.slice();
     const sorted = compare ? copied.sort(compare) : copied;
 
-    const head = { data: sorted.shift() as T };
-    const dll = { length: 1, head, tail: head };
+    const dll = makeTwoNodesDLL(sorted.shift() as T, sorted.shift() as T);
 
     return compare ? insert(dll, sorted, compare) : push(dll, sorted);
 }

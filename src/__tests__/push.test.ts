@@ -1,11 +1,12 @@
 import { push } from '../functions/push';
-import { DLL, DLLNode } from '../types';
+import { makeEmptyDLL } from '../helpers/make-dll';
+import { DLL, DLLNode, DLLWithNodes } from '../types';
 
 describe('push', () => {
     let prev: DLLNode<number>;
     let curr: DLLNode<number>;
     let next: DLLNode<number>;
-    let dll: DLL<number>;
+    let dll: DLLWithNodes<number>;
 
     beforeEach(() => {
         prev = { data: 0 };
@@ -35,5 +36,37 @@ describe('push', () => {
         expect(dll.tail.prev?.prev).toBe(next);
         expect(dll.tail.prev?.data).toBe(3);
         expect(dll.tail.data).toBe(4);
+    });
+
+    it('should push one element to an empty list correctly', () => {
+        const empty: DLL<number> = makeEmptyDLL();
+
+        push(empty, 1);
+        push(empty, 2);
+        push(empty, 3);
+
+        expect(empty.length).toEqual(3);
+        expect(empty.head?.data).toBe(1);
+        expect(empty.head?.next?.data).toBe(2);
+        expect(empty.head?.next?.next?.data).toBe(3);
+
+        expect(empty.tail?.data).toBe(3);
+        expect(empty.tail?.prev?.data).toBe(2);
+        expect(empty.tail?.prev?.prev?.data).toBe(1);
+    });
+
+    it('should push multiple elements to an empty list correctly', () => {
+        const empty: DLL<number> = makeEmptyDLL();
+
+        push(empty, [1, 2, 3]);
+
+        expect(empty.length).toEqual(3);
+        expect(empty.head?.data).toBe(1);
+        expect(empty.head?.next?.data).toBe(2);
+        expect(empty.head?.next?.next?.data).toBe(3);
+
+        expect(empty.tail?.data).toBe(3);
+        expect(empty.tail?.prev?.data).toBe(2);
+        expect(empty.tail?.prev?.prev?.data).toBe(1);
     });
 });

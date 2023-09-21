@@ -12,7 +12,7 @@ describe('attach', () => {
     let dll: DoublyLinkedList<number>;
 
     beforeEach(() => {
-        dll = new DoublyLinkedList(mockedArray);
+        dll = DoublyLinkedList.fromArray(mockedArray);
     });
 
     it('should have a correct unordered dll by default', () => {
@@ -34,31 +34,31 @@ describe('attach', () => {
     it('should push correctly', () => {
         dll.push(6);
         expect(dll.length).toEqual(8);
-        expect(dll.tail.data).toEqual(6);
+        expect(dll.tail?.data).toEqual(6);
 
         dll.push([7, 8]);
         expect(dll.length).toEqual(10);
-        expect(dll.tail.data).toEqual(8);
+        expect(dll.tail?.data).toEqual(8);
     });
 
     it('should insert correctly', () => {
         dll.unshift(6);
         expect(dll.length).toEqual(8);
-        expect(dll.head.data).toEqual(6);
+        expect(dll.head?.data).toEqual(6);
 
         dll.unshift([7, 8]);
         expect(dll.length).toEqual(10);
-        expect(dll.head.data).toEqual(7);
+        expect(dll.head?.data).toEqual(7);
     });
 
     it('should insert correctly', () => {
         dll.insert(6);
         expect(dll.length).toEqual(8);
-        expect(dll.tail.data).toEqual(6);
+        expect(dll.tail?.data).toEqual(6);
 
         dll.insert([7, 8]);
         expect(dll.length).toEqual(10);
-        expect(dll.tail.data).toEqual(8);
+        expect(dll.tail?.data).toEqual(8);
     });
 
     it('should insert correctly with compare', () => {
@@ -70,7 +70,7 @@ describe('attach', () => {
 
         dll.insert([87, 88], compare);
         expect(dll.length).toEqual(10);
-        expect(dll.tail.data).toEqual(89);
+        expect(dll.tail?.data).toEqual(89);
         expect(dll.tail?.prev?.data).toEqual(88);
         expect(dll.tail?.prev?.prev?.data).toEqual(87);
         expect(dll.tail?.prev?.prev?.prev?.data).toEqual(86);
@@ -80,22 +80,22 @@ describe('attach', () => {
         const list = new DoublyLinkedList(mockedArray, compare);
 
         list.push(1);
-        expect(list.tail.data).toBe(1);
+        expect(list.tail?.data).toBe(1);
 
         list.sort();
-        expect(list.head.data).toBe(1);
-        expect(list.tail.data).toBe(89);
+        expect(list.head?.data).toBe(1);
+        expect(list.tail?.data).toBe(89);
     });
 
     it('should sort correctly with new compare', () => {
         const list = new DoublyLinkedList(mockedArray, compare);
 
         list.push(1);
-        expect(list.tail.data).toBe(1);
+        expect(list.tail?.data).toBe(1);
 
         list.sort((a: number, b: number) => b - a);
-        expect(list.head.data).toBe(89);
-        expect(list.tail.data).toBe(1);
+        expect(list.head?.data).toBe(89);
+        expect(list.tail?.data).toBe(1);
     });
 
     it('should toArrayInOrder', () => {
@@ -132,5 +132,35 @@ describe('attach', () => {
             '5',
             '2',
         ]);
+    });
+
+    it('should pop correctly', () => {
+        dll.pop();
+        expect(dll.length).toBe(6);
+        expect(dll.tail?.data).toBe(5);
+
+        dll.pop(2);
+        expect(dll.length).toBe(4);
+        expect(dll.tail?.data).toBe(2);
+    });
+
+    it('should shift correctly', () => {
+        dll.shift();
+        expect(dll.length).toBe(6);
+        expect(dll.head?.data).toBe(32);
+
+        dll.shift(2);
+        expect(dll.length).toBe(4);
+        expect(dll.head?.data).toBe(2);
+    });
+
+    it('should shift correctly', () => {
+        dll.shift();
+        expect(dll.length).toBe(6);
+        expect(dll.head?.data).toBe(32);
+
+        dll.shift(2);
+        expect(dll.length).toBe(4);
+        expect(dll.head?.data).toBe(2);
     });
 });

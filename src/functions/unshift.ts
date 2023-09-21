@@ -1,12 +1,14 @@
-import { DLL } from '../types';
+import { DLL, DLLWithNodes } from '../types';
 import { attachPrev } from './attach';
+import { hasNodes } from './has-nodes';
+import { toDLL } from './to-doubly-linked-list';
 
-function unshiftElement<T>(dll: DLL<T>, element: T) {
+function unshiftElement<T>(dll: DLLWithNodes<T>, element: T) {
     dll.length++;
     dll.head = attachPrev(dll.head, element);
 }
 
-function unshiftElements<T>(dll: DLL<T>, elements: T[]) {
+function unshiftElements<T>(dll: DLLWithNodes<T>, elements: T[]) {
     const reversed = elements.slice().reverse();
 
     for (const element of reversed) {
@@ -21,7 +23,13 @@ function unshiftElements<T>(dll: DLL<T>, elements: T[]) {
  * @returns The doubly linked list.
  */
 export function unshift<T>(dll: DLL<T>, elements: T | T[]): DLL<T> {
-    if (Array.isArray(elements)) {
+    const isArray = Array.isArray(elements);
+
+    if (!hasNodes(dll)) {
+        return Object.assign(dll, toDLL(isArray ? elements : [elements]));
+    }
+
+    if (isArray) {
         unshiftElements(dll, elements);
     } else {
         unshiftElement(dll, elements);

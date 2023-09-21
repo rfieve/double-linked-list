@@ -9,7 +9,7 @@ import { DLL } from '../types';
 export function pop<T>(dll: DLL<T>, amount = 1): DLL<T> {
     let count = amount;
 
-    while (count > 0 && dll.tail.prev) {
+    while (count > 0 && dll.tail?.prev) {
         dll.length--;
         dll.tail = dll.tail.prev;
         count--;

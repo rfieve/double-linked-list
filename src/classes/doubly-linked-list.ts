@@ -34,8 +34,8 @@ function defaultCompare() {
 }
 
 export class DoublyLinkedList<T> {
-    private l!       : DLL<T>;
-    private compare! : CompareFunction<T>;
+    protected l!       : DLL<T>;
+    protected compare! : CompareFunction<T>;
 
     constructor(elements = [] as T[], compare = defaultCompare as CompareFunction<T>) {
         this.l = toDLL(elements, compare);

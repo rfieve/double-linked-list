@@ -14,7 +14,7 @@ function insertElement<T>(
 
     const target = findNextGte(from || dll.head, element, compare) ?? dll.tail;
     const comparison = compare(element, target.data);
-    const attach = comparison <= 0 ? attachPrev : attachNext;
+    const attach = comparison < 0 ? attachPrev : attachNext;
 
     return target === dll.tail && comparison > 0
         ? (dll.tail = attach(target, element))
@@ -23,10 +23,15 @@ function insertElement<T>(
         : attach(target, element);
 }
 
-function insertElements<T>(dll: DLLWithNodes<T>, elements: T[], compare: CompareFunction<T>) {
+function insertElements<T>(
+    dll: DLLWithNodes<T>,
+    elements: T[],
+    compare: CompareFunction<T>,
+    from?: DLLNode<T>
+) {
     const sorted = elements.slice().sort(compare);
 
-    let prev;
+    let prev = from;
 
     for (const element of sorted) {
         prev = insertElement(dll, element, compare, prev);
@@ -38,9 +43,15 @@ function insertElements<T>(dll: DLLWithNodes<T>, elements: T[], compare: Compare
  * @param dll The source doubly linked list.
  * @param elements The nodes to be inserted.
  * @param compare The compare function.
+ * @param from The node to start the insersion from.
  * @returns The doubly linked list.
  */
-export function insert<T>(dll: DLL<T>, elements: T | T[], compare: CompareFunction<T>): DLL<T> {
+export function insert<T>(
+    dll: DLL<T>,
+    elements: T | T[],
+    compare: CompareFunction<T>,
+    from?: DLLNode<T>
+): DLL<T> {
     const isArray = Array.isArray(elements);
 
     if (!hasNodes(dll)) {
@@ -48,9 +59,9 @@ export function insert<T>(dll: DLL<T>, elements: T | T[], compare: CompareFuncti
     }
 
     if (isArray) {
-        insertElements(dll, elements, compare);
+        insertElements(dll, elements, compare, from);
     } else {
-        insertElement(dll, elements, compare);
+        insertElement(dll, elements, compare, from);
     }
 
     return dll;
@@ -62,7 +73,7 @@ export function insert<T>(dll: DLL<T>, elements: T | T[], compare: CompareFuncti
  * @returns The bound insert function.
  */
 export function makeInsert<T>(compare: CompareFunction<T>) {
-    return function (dll: DLL<T>, elements: T | T[]) {
-        return insert(dll, elements, compare);
+    return function (dll: DLL<T>, elements: T | T[], from?: DLLNode<T>) {
+        return insert(dll, elements, compare, from);
     };
 }

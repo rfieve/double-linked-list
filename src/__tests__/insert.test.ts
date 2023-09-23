@@ -1,4 +1,5 @@
 import { insert, makeInsert } from '../functions/insert';
+import { toArrayInOrder } from '../functions/to-array';
 import { makeEmptyDLL } from '../helpers/make-dll';
 import { DLL, DLLNode, DLLWithNodes } from '../types';
 import { compare } from './_mocks';
@@ -65,6 +66,14 @@ describe('insert', () => {
         expect(dll.head).toBe(prev);
         expect(dll.tail.prev).toBe(next);
         expect(dll.tail.data).toBe(3);
+    });
+
+    it('should insert multiple elements from a specific node correctly', () => {
+        insert(dll, [3, 4], () => 0, curr);
+
+        expect(toArrayInOrder(dll)).toEqual([0, 1, 3, 4, 2]);
+        expect(dll.length).toEqual(5);
+        expect(dll.tail.data).toBe(2);
     });
 
     it('should insert one element to an empty list correctly', () => {

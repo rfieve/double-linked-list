@@ -72,8 +72,12 @@ export class DoublyLinkedList<T> {
         return this;
     };
 
-    public readonly insert = (elements: T | T[], compare?: CompareFunction<T>) => {
-        this.l = insertNode(this.l, elements, compare || this.compare);
+    public readonly insert = (
+        elements: T | T[],
+        compare?: CompareFunction<T>,
+        from?: DLLNode<T>
+    ) => {
+        this.l = insertNode(this.l, elements, compare || this.compare, from);
         return this;
     };
 

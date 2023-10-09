@@ -3,10 +3,10 @@ import { makeEmptyDLL } from '../helpers/make-dll';
 import { DLL, DLLNode, DLLWithNodes } from '../types';
 
 describe('unshift', () => {
-    let prev: DLLNode<number>;
-    let curr: DLLNode<number>;
-    let next: DLLNode<number>;
-    let dll: DLLWithNodes<number>;
+    let prev: DLLNode<number>,
+        curr: DLLNode<number>,
+        next: DLLNode<number>,
+        dll: DLLWithNodes<number>;
 
     beforeEach(() => {
         prev = { data: 0 };

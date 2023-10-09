@@ -3,10 +3,10 @@ import { DLLNode, DLLWithNodes } from '../types';
 import { compare } from './_mocks';
 
 describe('remove', () => {
-    let prev: DLLNode<number>;
-    let curr: DLLNode<number>;
-    let next: DLLNode<number>;
-    let dll: DLLWithNodes<number>;
+    let prev: DLLNode<number>,
+        curr: DLLNode<number>,
+        next: DLLNode<number>,
+        dll: DLLWithNodes<number>;
 
     const bound = makeRemove(compare);
 

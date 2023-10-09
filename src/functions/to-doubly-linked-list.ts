@@ -18,10 +18,9 @@ export function toDLL<T>(elements = [] as T[], compare?: CompareFunction<T>) {
         return makeOneNodeDLL(elements[0]);
     }
 
-    const copied = elements.slice();
-    const sorted = compare ? copied.sort(compare) : copied;
-
-    const dll = makeTwoNodesDLL(sorted.shift() as T, sorted.shift() as T);
+    const copied = elements.slice(),
+          sorted = compare ? copied.sort(compare) : copied,
+          dll = makeTwoNodesDLL(sorted.shift() as T, sorted.shift() as T);
 
     return compare ? insert(dll, sorted, compare) : push(dll, sorted);
 }

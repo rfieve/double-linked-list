@@ -2,9 +2,7 @@ import { attach, attachNext, attachPrev } from '../functions/attach';
 import { Direction, DLLNode } from '../types';
 
 describe('attach', () => {
-    let prev: DLLNode<number>;
-    let curr: DLLNode<number>;
-    let next: DLLNode<number>;
+    let prev: DLLNode<number>, curr: DLLNode<number>, next: DLLNode<number>;
 
     beforeEach(() => {
         prev = { data: 0 };

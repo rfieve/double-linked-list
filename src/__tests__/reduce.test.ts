@@ -11,8 +11,9 @@ const reducer: ReduceFunction<number, string> = (
 
 describe('reduce', () => {
     it('should reduce a dll correctly', () => {
-        const dll = toDLL(mockedArray);
-        const reduced = reduce(dll, reducer, '');
+        const dll = toDLL(mockedArray),
+              reduced = reduce(dll, reducer, '');
+
         expect(reduced).toEqual('1033155931056');
     });
 });

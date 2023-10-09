@@ -8,8 +8,8 @@ import { traverseInOrder } from './traverse-in-order';
  * @returns The reduction result.
  */
 export function reduce<T, U>(dll: DLL<T>, reducer: ReduceFunction<T, U>, init: U): U {
-    let index = 0;
-    let acc = init;
+    let index = 0,
+        acc = init;
 
     traverseInOrder(dll, (node: DLLNode<T>) => {
         acc = reducer(acc, node, index);

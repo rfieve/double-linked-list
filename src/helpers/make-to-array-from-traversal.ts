@@ -1,8 +1,8 @@
 import { DLL, DLLNode, MapFunction, TraverseFunction } from '../types';
 
 function toArray<T>(dll: DLL<T>, traverse: TraverseFunction<T>) {
-    const elements: T[] = [];
-    const collect = (node: DLLNode<T>) => elements.push(node.data);
+    const elements: T[] = [],
+          collect = (node: DLLNode<T>) => elements.push(node.data);
 
     traverse(dll, collect);
 
@@ -11,8 +11,9 @@ function toArray<T>(dll: DLL<T>, traverse: TraverseFunction<T>) {
 
 function toArrayMap<T, U>(dll: DLL<T>, traverse: TraverseFunction<T>, mapper: MapFunction<T, U>) {
     let index = 0;
-    const elements: U[] = [];
-    const collect = (node: DLLNode<T>) => elements.push(mapper(node, index++));
+
+    const elements: U[] = [],
+          collect = (node: DLLNode<T>) => elements.push(mapper(node, index++));
 
     traverse(dll, collect);
 

@@ -11,8 +11,8 @@ export function makeOneNodeDLL<T>(element: T): DLLWithNodes<T> {
 }
 
 export function makeTwoNodesDLL<T>(first: T, second: T): DLLWithNodes<T> {
-    const head: DLLNode<T> = { data: first };
-    const tail: DLLNode<T> = { data: second };
+    const head: DLLNode<T> = { data: first },
+          tail: DLLNode<T> = { data: second };
 
     tail.prev = head;
     head.next = tail;

@@ -19,15 +19,14 @@ export function findOne<T>(
         return undefined;
     }
 
-    const currentNode: DLLNode<T> | undefined = from || dll.head;
-
-    const comparison = compare(element, currentNode.data);
+    const currentNode: DLLNode<T> | undefined = from || dll.head,
+          comparison = compare(element, currentNode.data);
 
     return comparison === 0
         ? currentNode
         : hasNext(currentNode)
-        ? findOne(dll, compare, element, currentNode.next)
-        : undefined;
+            ? findOne(dll, compare, element, currentNode.next)
+            : undefined;
 }
 
 /**

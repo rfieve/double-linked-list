@@ -12,15 +12,15 @@ function insertElement<T>(
 ) {
     dll.length++;
 
-    const target = findNextGte(from || dll.head, element, compare) ?? dll.tail;
-    const comparison = compare(element, target.data);
-    const attach = comparison < 0 ? attachPrev : attachNext;
+    const target = findNextGte(from || dll.head, element, compare) ?? dll.tail,
+          comparison = compare(element, target.data),
+          attach = comparison < 0 ? attachPrev : attachNext;
 
     return target === dll.tail && comparison > 0
         ? (dll.tail = attach(target, element))
         : target === dll.head
-        ? (dll.head = attach(target, element))
-        : attach(target, element);
+            ? (dll.head = attach(target, element))
+            : attach(target, element);
 }
 
 function insertElements<T>(

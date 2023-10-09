@@ -1,4 +1,4 @@
-import { DLLNode, DLLNodeWithPrev } from '../types';
+import { DLLNode, DLLNodeWithPrev } from '../types'
 
 /**
  * Assesses if the given node has a prev node.
@@ -6,5 +6,5 @@ import { DLLNode, DLLNodeWithPrev } from '../types';
  * @returns True if it has, false if it hasn't.
  */
 export function hasPrev<T>(node: DLLNode<T>): node is DLLNodeWithPrev<T> {
-    return !!node.prev;
+    return !!node.prev
 }

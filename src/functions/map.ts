@@ -1,6 +1,6 @@
-import { DLL, MapFunction } from '../types';
-import { toArrayMapInOrder } from './to-array';
-import { toDLL } from './to-doubly-linked-list';
+import { DLL, MapFunction } from '../types'
+import { toArrayMapInOrder } from './to-array'
+import { toDLL } from './to-doubly-linked-list'
 
 /**
  * Reduces the dll nodes with transformation.
@@ -9,5 +9,5 @@ import { toDLL } from './to-doubly-linked-list';
  * @returns The reduction result.
  */
 export function map<T, U>(dll: DLL<T>, mapper: MapFunction<T, U>): DLL<U> {
-    return toDLL(toArrayMapInOrder(dll, mapper));
+    return toDLL(toArrayMapInOrder(dll, mapper))
 }

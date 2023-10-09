@@ -1,8 +1,8 @@
-import { makeFindManyFromTraversal } from '../helpers/make-find-many-from-traversal';
-import { makeFindManyTraversal } from '../helpers/make-find-many-traversal';
-import { CompareFunction, DLL } from '../types';
+import { makeFindManyFromTraversal } from '../helpers/make-find-many-from-traversal'
+import { makeFindManyTraversal } from '../helpers/make-find-many-traversal'
+import { CompareFunction, DLL } from '../types'
 
-const traverseGt = makeFindManyTraversal((comparison: number) => comparison < 0);
+const traverseGt = makeFindManyTraversal((comparison: number) => comparison < 0)
 
 /**
  * Finds all nodes greater than given element into the given doubly linked list with the given compare function.
@@ -11,7 +11,7 @@ const traverseGt = makeFindManyTraversal((comparison: number) => comparison < 0)
  * @param element The element to be found.
  * @returns The found result.
  */
-export const findGt = makeFindManyFromTraversal(traverseGt);
+export const findGt = makeFindManyFromTraversal(traverseGt)
 
 /**
  * Creates a find greater function for the given doubly linked list with the given compare function.
@@ -20,6 +20,6 @@ export const findGt = makeFindManyFromTraversal(traverseGt);
  */
 export function makeFindGt<T>(compare: CompareFunction<T>) {
     return function (dll: DLL<T>, element: T) {
-        return findGt(dll, compare, element);
-    };
+        return findGt(dll, compare, element)
+    }
 }

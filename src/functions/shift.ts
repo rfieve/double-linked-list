@@ -1,4 +1,4 @@
-import { DLL } from '../types';
+import { DLL } from '../types'
 
 /**
  * Removes the node(s) of the given doubly linked list's head in place.
@@ -7,13 +7,13 @@ import { DLL } from '../types';
  * @returns The doubly linked list.
  */
 export function shift<T>(dll: DLL<T>, amount = 1): DLL<T> {
-    let count = amount;
+    let count = amount
 
     while (count > 0 && dll.head?.next) {
-        dll.length--;
-        dll.head = dll.head.next;
-        count--;
+        dll.length--
+        dll.head = dll.head.next
+        count--
     }
 
-    return dll;
+    return dll
 }

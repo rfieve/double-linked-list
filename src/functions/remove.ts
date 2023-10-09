@@ -1,39 +1,39 @@
-import { CompareFunction, DLL, DLLNode, DLLNodeWithNext, DLLNodeWithPrev } from '../types';
-import { findOne } from './find-one';
+import { CompareFunction, DLL, DLLNode, DLLNodeWithNext, DLLNodeWithPrev } from '../types'
+import { findOne } from './find-one'
 
 function removeElement<T>(dll: DLL<T>, element: T, compare: CompareFunction<T>, from?: DLLNode<T>) {
-    const target = findOne(dll, compare, element, from);
+    const target = findOne(dll, compare, element, from)
 
     if (target) {
-        dll.length--;
+        dll.length--
 
-        const { next, prev } = target;
+        const { next, prev } = target
 
         if (prev) {
-            prev.next = next;
+            prev.next = next
         } else {
-            dll.head = next as DLLNodeWithNext<T>;
+            dll.head = next as DLLNodeWithNext<T>
         }
 
         if (next) {
-            next.prev = prev;
+            next.prev = prev
         } else {
-            dll.tail = prev as DLLNodeWithPrev<T>;
+            dll.tail = prev as DLLNodeWithPrev<T>
         }
 
-        return prev || next;
+        return prev || next
     } else {
-        return dll.head;
+        return dll.head
     }
 }
 
 function removeElements<T>(dll: DLL<T>, elements: T[], compare: CompareFunction<T>) {
-    const sorted = elements.slice().sort(compare);
+    const sorted = elements.slice().sort(compare)
 
-    let prev;
+    let prev
 
     for (const element of sorted) {
-        prev = removeElement(dll, element, compare, prev);
+        prev = removeElement(dll, element, compare, prev)
     }
 }
 
@@ -46,12 +46,12 @@ function removeElements<T>(dll: DLL<T>, elements: T[], compare: CompareFunction<
  */
 export function remove<T>(dll: DLL<T>, elements: T | T[], compare: CompareFunction<T>): DLL<T> {
     if (Array.isArray(elements)) {
-        removeElements(dll, elements, compare);
+        removeElements(dll, elements, compare)
     } else {
-        removeElement(dll, elements, compare);
+        removeElement(dll, elements, compare)
     }
 
-    return dll;
+    return dll
 }
 
 /**
@@ -61,6 +61,6 @@ export function remove<T>(dll: DLL<T>, elements: T | T[], compare: CompareFuncti
  */
 export function makeRemove<T>(compare: CompareFunction<T>) {
     return function (dll: DLL<T>, elements: T | T[]) {
-        return remove(dll, elements, compare);
-    };
+        return remove(dll, elements, compare)
+    }
 }

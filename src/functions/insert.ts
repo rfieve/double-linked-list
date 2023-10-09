@@ -1,8 +1,8 @@
-import { CompareFunction, DLL, DLLNode, DLLWithNodes } from '../types';
-import { attachNext, attachPrev } from './attach';
-import { findNextGte } from './find-next-gte';
-import { hasNodes } from './has-nodes';
-import { toDLL } from './to-doubly-linked-list';
+import { CompareFunction, DLL, DLLNode, DLLWithNodes } from '../types'
+import { attachNext, attachPrev } from './attach'
+import { findNextGte } from './find-next-gte'
+import { hasNodes } from './has-nodes'
+import { toDLL } from './to-doubly-linked-list'
 
 function insertElement<T>(
     dll: DLLWithNodes<T>,
@@ -10,17 +10,17 @@ function insertElement<T>(
     compare: CompareFunction<T>,
     from?: DLLNode<T>
 ) {
-    dll.length++;
+    dll.length++
 
     const target = findNextGte(from || dll.head, element, compare) ?? dll.tail,
           comparison = compare(element, target.data),
-          attach = comparison < 0 ? attachPrev : attachNext;
+          attach = comparison < 0 ? attachPrev : attachNext
 
     return target === dll.tail && comparison > 0
         ? (dll.tail = attach(target, element))
         : target === dll.head
             ? (dll.head = attach(target, element))
-            : attach(target, element);
+            : attach(target, element)
 }
 
 function insertElements<T>(
@@ -29,12 +29,12 @@ function insertElements<T>(
     compare: CompareFunction<T>,
     from?: DLLNode<T>
 ) {
-    const sorted = elements.slice().sort(compare);
+    const sorted = elements.slice().sort(compare)
 
-    let prev = from;
+    let prev = from
 
     for (const element of sorted) {
-        prev = insertElement(dll, element, compare, prev);
+        prev = insertElement(dll, element, compare, prev)
     }
 }
 
@@ -52,19 +52,19 @@ export function insert<T>(
     compare: CompareFunction<T>,
     from?: DLLNode<T>
 ): DLL<T> {
-    const isArray = Array.isArray(elements);
+    const isArray = Array.isArray(elements)
 
     if (!hasNodes(dll)) {
-        return Object.assign(dll, toDLL(isArray ? elements : [elements], compare));
+        return Object.assign(dll, toDLL(isArray ? elements : [elements], compare))
     }
 
     if (isArray) {
-        insertElements(dll, elements, compare, from);
+        insertElements(dll, elements, compare, from)
     } else {
-        insertElement(dll, elements, compare, from);
+        insertElement(dll, elements, compare, from)
     }
 
-    return dll;
+    return dll
 }
 
 /**
@@ -74,6 +74,6 @@ export function insert<T>(
  */
 export function makeInsert<T>(compare: CompareFunction<T>) {
     return function (dll: DLL<T>, elements: T | T[], from?: DLLNode<T>) {
-        return insert(dll, elements, compare, from);
-    };
+        return insert(dll, elements, compare, from)
+    }
 }

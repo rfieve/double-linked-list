@@ -1,5 +1,5 @@
-import { hasNext } from '../functions/has-next';
-import { CompareFunction, DLLNode } from '../types';
+import { hasNext } from '../functions/has-next'
+import { CompareFunction, DLLNode } from '../types'
 
 export function makeFindManyTraversal(shouldFindCurrent: (comparion: number) => boolean) {
     return function traverse<T>(
@@ -8,14 +8,14 @@ export function makeFindManyTraversal(shouldFindCurrent: (comparion: number) => 
         compare: CompareFunction<T>,
         element: T
     ): void {
-        const comparison = compare(element, node.data);
+        const comparison = compare(element, node.data)
 
         if (shouldFindCurrent(comparison)) {
-            cb(node);
+            cb(node)
         }
 
         if (hasNext(node)) {
-            traverse(cb, node.next, compare, element);
+            traverse(cb, node.next, compare, element)
         }
-    };
+    }
 }

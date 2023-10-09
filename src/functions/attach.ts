@@ -1,4 +1,4 @@
-import { Direction, DLLNode } from '../types';
+import { Direction, DLLNode } from '../types'
 
 /**
  * Attaches an element as next/prev node of the passed one.
@@ -9,14 +9,14 @@ import { Direction, DLLNode } from '../types';
 export function attach<T>(node: DLLNode<T>, element: T, direction: Direction) {
     const opposite = direction === Direction.Prev ? Direction.Next : Direction.Prev,
           newNode = { data: element, [opposite]: node },
-          oldNode = node[direction];
+          oldNode = node[direction]
 
     if (oldNode) {
-        newNode[direction] = oldNode;
-        oldNode[opposite] = newNode;
+        newNode[direction] = oldNode
+        oldNode[opposite] = newNode
     }
 
-    return (node[direction] = newNode);
+    return (node[direction] = newNode)
 }
 
 /**
@@ -25,7 +25,7 @@ export function attach<T>(node: DLLNode<T>, element: T, direction: Direction) {
  * @param element The element to attach as next node.
  */
 export function attachNext<T>(node: DLLNode<T>, element: T) {
-    return attach(node, element, Direction.Next);
+    return attach(node, element, Direction.Next)
 }
 
 /**
@@ -34,5 +34,5 @@ export function attachNext<T>(node: DLLNode<T>, element: T) {
  * @param element The element to attach as prev node.
  */
 export function attachPrev<T>(node: DLLNode<T>, element: T) {
-    return attach(node, element, Direction.Prev);
+    return attach(node, element, Direction.Prev)
 }

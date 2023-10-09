@@ -1,8 +1,8 @@
-import { makeFindManyFromTraversal } from '../helpers/make-find-many-from-traversal';
-import { makeFindManyTraversal } from '../helpers/make-find-many-traversal';
-import { CompareFunction, DLL } from '../types';
+import { makeFindManyFromTraversal } from '../helpers/make-find-many-from-traversal'
+import { makeFindManyTraversal } from '../helpers/make-find-many-traversal'
+import { CompareFunction, DLL } from '../types'
 
-const traverseEquivalent = makeFindManyTraversal((comparison: number) => comparison === 0);
+const traverseEquivalent = makeFindManyTraversal((comparison: number) => comparison === 0)
 
 /**
  * Finds all nodes equivalent to the given element into the given doubly linked list with the given compare function.
@@ -11,7 +11,7 @@ const traverseEquivalent = makeFindManyTraversal((comparison: number) => compari
  * @param element The element to be found.
  * @returns The found result.
  */
-export const findMany = makeFindManyFromTraversal(traverseEquivalent);
+export const findMany = makeFindManyFromTraversal(traverseEquivalent)
 
 /**
  * Creates a find many function for the given doubly linked list with the given compare function.
@@ -20,6 +20,6 @@ export const findMany = makeFindManyFromTraversal(traverseEquivalent);
  */
 export function makeFindMany<T>(compare: CompareFunction<T>) {
     return function (dll: DLL<T>, element: T) {
-        return findMany(dll, compare, element);
-    };
+        return findMany(dll, compare, element)
+    }
 }

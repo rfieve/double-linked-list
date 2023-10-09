@@ -1,4 +1,4 @@
-import { DLL, DLLWithNodes } from '../types';
+import { DLL, DLLWithNodes } from '../types'
 
 /**
  * Assesses that the given doubly linked list is not empty.
@@ -6,5 +6,5 @@ import { DLL, DLLWithNodes } from '../types';
  * @returns True if is, false if it is not.
  */
 export function hasNodes<T>(dll: DLL<T>): dll is DLLWithNodes<T> {
-    return !!dll.head && !!dll.tail;
+    return !!dll.head && !!dll.tail
 }

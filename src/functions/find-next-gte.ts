@@ -1,4 +1,4 @@
-import { CompareFunction, DLLNode } from '../types';
+import { CompareFunction, DLLNode } from '../types'
 
 /**
  * Finds the next node to be greater or equal than the element with the compare function.
@@ -12,11 +12,11 @@ export function findNextGte<T>(
     element: T,
     compare: CompareFunction<T>
 ): DLLNode<T> | undefined {
-    const comparison = compare(element, node.data);
+    const comparison = compare(element, node.data)
 
     if (comparison <= 0) {
-        return node;
+        return node
     }
 
-    return node.next ? findNextGte(node.next, element, compare) : undefined;
+    return node.next ? findNextGte(node.next, element, compare) : undefined
 }

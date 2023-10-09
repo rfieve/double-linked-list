@@ -1,6 +1,6 @@
-import { Direction, DLL, TraverseCallback } from '../types';
-import { hasNodes } from './has-nodes';
-import { traverseFrom } from './traverse-from';
+import { Direction, DLL, TraverseCallback } from '../types'
+import { hasNodes } from './has-nodes'
+import { traverseFrom } from './traverse-from'
 
 /**
  * Traverses the doubly linked list in order (head to tail),
@@ -10,7 +10,7 @@ import { traverseFrom } from './traverse-from';
  */
 export function traverseInOrder<T>(dll: DLL<T>, cb: TraverseCallback<T>) {
     if (hasNodes(dll)) {
-        traverseFrom(dll.head, Direction.Next, cb);
+        traverseFrom(dll.head, Direction.Next, cb)
     }
 }
 
@@ -22,6 +22,6 @@ export function traverseInOrder<T>(dll: DLL<T>, cb: TraverseCallback<T>) {
  */
 export function traverseInOrderReverse<T>(dll: DLL<T>, cb: TraverseCallback<T>) {
     if (hasNodes(dll)) {
-        traverseFrom(dll.tail, Direction.Prev, cb);
+        traverseFrom(dll.tail, Direction.Prev, cb)
     }
 }

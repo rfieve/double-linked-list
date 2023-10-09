@@ -1,6 +1,6 @@
-import { CompareFunction, DLL } from '../types';
-import { toArrayInOrder } from './to-array';
-import { toDLL } from './to-doubly-linked-list';
+import { CompareFunction, DLL } from '../types'
+import { toArrayInOrder } from './to-array'
+import { toDLL } from './to-doubly-linked-list'
 
 /**
  * Sorts a double linked list and returns it without modifing the provided one.
@@ -9,7 +9,7 @@ import { toDLL } from './to-doubly-linked-list';
  * @returns The sorted list.
  */
 export function sort<T>(dll: DLL<T>, compare: CompareFunction<T>) {
-    return toDLL(toArrayInOrder(dll), compare);
+    return toDLL(toArrayInOrder(dll), compare)
 }
 
 /**
@@ -19,6 +19,6 @@ export function sort<T>(dll: DLL<T>, compare: CompareFunction<T>) {
  */
 export function makeSort<T>(compare: CompareFunction<T>) {
     return function (dll: DLL<T>) {
-        return sort(dll, compare);
-    };
+        return sort(dll, compare)
+    }
 }

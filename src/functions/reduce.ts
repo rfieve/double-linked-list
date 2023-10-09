@@ -1,5 +1,5 @@
-import { DLL, DLLNode, ReduceFunction } from '../types';
-import { traverseInOrder } from './traverse-in-order';
+import { DLL, DLLNode, ReduceFunction } from '../types'
+import { traverseInOrder } from './traverse-in-order'
 
 /**
  * Reduces the dll nodes with transformation.
@@ -9,12 +9,12 @@ import { traverseInOrder } from './traverse-in-order';
  */
 export function reduce<T, U>(dll: DLL<T>, reducer: ReduceFunction<T, U>, init: U): U {
     let index = 0,
-        acc = init;
+        acc = init
 
     traverseInOrder(dll, (node: DLLNode<T>) => {
-        acc = reducer(acc, node, index);
-        index++;
-    });
+        acc = reducer(acc, node, index)
+        index++
+    })
 
-    return acc;
+    return acc
 }

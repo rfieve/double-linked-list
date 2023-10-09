@@ -1,4 +1,4 @@
-import { Direction, DLLNode } from '../types';
+import { Direction, DLLNode } from '../types'
 
 /**
  * Traverses the list from a specific node in the specified direction,
@@ -12,11 +12,11 @@ export function traverseFrom<T>(
     direction: Direction,
     cb: (node: DLLNode<T>) => void
 ) {
-    let currentNode: DLLNode<T> | undefined = node;
+    let currentNode: DLLNode<T> | undefined = node
 
     while (currentNode) {
-        cb(currentNode);
+        cb(currentNode)
 
-        currentNode = currentNode[direction];
+        currentNode = currentNode[direction]
     }
 }

@@ -1,4 +1,4 @@
-import { DoublyLinkedList } from '../classes/doubly-linked-list';
+import { DoublyLinkedList } from '../classes/doubly-linked-list'
 import {
     compare,
     mapToString,
@@ -6,110 +6,110 @@ import {
     mockedArrayInOrder,
     mockedOrderedList,
     mockedUnorderedList,
-} from './_mocks';
+} from './_mocks'
 
 describe('attach', () => {
-    let dll: DoublyLinkedList<number>;
+    let dll: DoublyLinkedList<number>
 
     beforeEach(() => {
-        dll = DoublyLinkedList.fromArray(mockedArray);
-    });
+        dll = DoublyLinkedList.fromArray(mockedArray)
+    })
 
     it('should have a correct unordered dll by default', () => {
-        expect(dll.dll).toEqual(mockedUnorderedList);
-        expect(dll.length).toEqual(mockedUnorderedList.length);
-        expect(dll.head).toEqual(mockedUnorderedList.head);
-        expect(dll.tail).toEqual(mockedUnorderedList.tail);
-    });
+        expect(dll.dll).toEqual(mockedUnorderedList)
+        expect(dll.length).toEqual(mockedUnorderedList.length)
+        expect(dll.head).toEqual(mockedUnorderedList.head)
+        expect(dll.tail).toEqual(mockedUnorderedList.tail)
+    })
 
     it('should have a correct ordered dll when a compare is provided', () => {
-        const list = new DoublyLinkedList(mockedArray, compare);
+        const list = new DoublyLinkedList(mockedArray, compare)
 
-        expect(list.dll).toEqual(mockedOrderedList);
-        expect(list.length).toEqual(mockedOrderedList.length);
-        expect(list.head).toEqual(mockedOrderedList.head);
-        expect(list.tail).toEqual(mockedOrderedList.tail);
-    });
+        expect(list.dll).toEqual(mockedOrderedList)
+        expect(list.length).toEqual(mockedOrderedList.length)
+        expect(list.head).toEqual(mockedOrderedList.head)
+        expect(list.tail).toEqual(mockedOrderedList.tail)
+    })
 
     it('should push correctly', () => {
-        dll.push(6);
-        expect(dll.length).toEqual(8);
-        expect(dll.tail?.data).toEqual(6);
+        dll.push(6)
+        expect(dll.length).toEqual(8)
+        expect(dll.tail?.data).toEqual(6)
 
-        dll.push([7, 8]);
-        expect(dll.length).toEqual(10);
-        expect(dll.tail?.data).toEqual(8);
-    });
-
-    it('should insert correctly', () => {
-        dll.unshift(6);
-        expect(dll.length).toEqual(8);
-        expect(dll.head?.data).toEqual(6);
-
-        dll.unshift([7, 8]);
-        expect(dll.length).toEqual(10);
-        expect(dll.head?.data).toEqual(7);
-    });
+        dll.push([7, 8])
+        expect(dll.length).toEqual(10)
+        expect(dll.tail?.data).toEqual(8)
+    })
 
     it('should insert correctly', () => {
-        dll.insert(6);
-        expect(dll.length).toEqual(8);
-        expect(dll.tail?.data).toEqual(6);
+        dll.unshift(6)
+        expect(dll.length).toEqual(8)
+        expect(dll.head?.data).toEqual(6)
 
-        dll.insert([7, 8]);
-        expect(dll.length).toEqual(10);
-        expect(dll.tail?.data).toEqual(8);
-    });
+        dll.unshift([7, 8])
+        expect(dll.length).toEqual(10)
+        expect(dll.head?.data).toEqual(7)
+    })
+
+    it('should insert correctly', () => {
+        dll.insert(6)
+        expect(dll.length).toEqual(8)
+        expect(dll.tail?.data).toEqual(6)
+
+        dll.insert([7, 8])
+        expect(dll.length).toEqual(10)
+        expect(dll.tail?.data).toEqual(8)
+    })
 
     it('should insert correctly with compare', () => {
-        dll.sort(compare);
+        dll.sort(compare)
 
-        dll.insert(86, compare);
-        expect(dll.length).toEqual(8);
-        expect(dll.tail?.prev?.data).toEqual(86);
+        dll.insert(86, compare)
+        expect(dll.length).toEqual(8)
+        expect(dll.tail?.prev?.data).toEqual(86)
 
-        dll.insert([87, 88], compare);
-        expect(dll.length).toEqual(10);
-        expect(dll.tail?.data).toEqual(89);
-        expect(dll.tail?.prev?.data).toEqual(88);
-        expect(dll.tail?.prev?.prev?.data).toEqual(87);
-        expect(dll.tail?.prev?.prev?.prev?.data).toEqual(86);
-    });
+        dll.insert([87, 88], compare)
+        expect(dll.length).toEqual(10)
+        expect(dll.tail?.data).toEqual(89)
+        expect(dll.tail?.prev?.data).toEqual(88)
+        expect(dll.tail?.prev?.prev?.data).toEqual(87)
+        expect(dll.tail?.prev?.prev?.prev?.data).toEqual(86)
+    })
 
     it('should sort correctly', () => {
-        const list = new DoublyLinkedList(mockedArray, compare);
+        const list = new DoublyLinkedList(mockedArray, compare)
 
-        list.push(1);
-        expect(list.tail?.data).toBe(1);
+        list.push(1)
+        expect(list.tail?.data).toBe(1)
 
-        list.sort();
-        expect(list.head?.data).toBe(1);
-        expect(list.tail?.data).toBe(89);
-    });
+        list.sort()
+        expect(list.head?.data).toBe(1)
+        expect(list.tail?.data).toBe(89)
+    })
 
     it('should sort correctly with new compare', () => {
-        const list = new DoublyLinkedList(mockedArray, compare);
+        const list = new DoublyLinkedList(mockedArray, compare)
 
-        list.push(1);
-        expect(list.tail?.data).toBe(1);
+        list.push(1)
+        expect(list.tail?.data).toBe(1)
 
-        list.sort((a: number, b: number) => b - a);
-        expect(list.head?.data).toBe(89);
-        expect(list.tail?.data).toBe(1);
-    });
+        list.sort((a: number, b: number) => b - a)
+        expect(list.head?.data).toBe(89)
+        expect(list.tail?.data).toBe(1)
+    })
 
     it('should toArrayInOrder', () => {
-        const list = dll.sort(compare);
-        expect(list.toArrayInOrder()).toEqual(mockedArrayInOrder);
-    });
+        const list = dll.sort(compare)
+        expect(list.toArrayInOrder()).toEqual(mockedArrayInOrder)
+    })
 
     it('should toArrayInOrderReverse', () => {
-        const list = dll.sort(compare);
-        expect(list.toArrayInOrderReverse()).toEqual(mockedArrayInOrder.slice().reverse());
-    });
+        const list = dll.sort(compare)
+        expect(list.toArrayInOrderReverse()).toEqual(mockedArrayInOrder.slice().reverse())
+    })
 
     it('should toArrayMapInOrder', () => {
-        const list = dll.sort(compare);
+        const list = dll.sort(compare)
         expect(list.toArrayMapInOrder(mapToString)).toEqual([
             '2',
             '5',
@@ -118,11 +118,11 @@ describe('attach', () => {
             '32',
             '50',
             '89',
-        ]);
-    });
+        ])
+    })
 
     it('should toArrayMapInOrderReverse', () => {
-        const list = dll.sort(compare);
+        const list = dll.sort(compare)
         expect(list.toArrayMapInOrderReverse(mapToString)).toEqual([
             '89',
             '50',
@@ -131,36 +131,36 @@ describe('attach', () => {
             '10',
             '5',
             '2',
-        ]);
-    });
+        ])
+    })
 
     it('should pop correctly', () => {
-        dll.pop();
-        expect(dll.length).toBe(6);
-        expect(dll.tail?.data).toBe(5);
+        dll.pop()
+        expect(dll.length).toBe(6)
+        expect(dll.tail?.data).toBe(5)
 
-        dll.pop(2);
-        expect(dll.length).toBe(4);
-        expect(dll.tail?.data).toBe(2);
-    });
-
-    it('should shift correctly', () => {
-        dll.shift();
-        expect(dll.length).toBe(6);
-        expect(dll.head?.data).toBe(32);
-
-        dll.shift(2);
-        expect(dll.length).toBe(4);
-        expect(dll.head?.data).toBe(2);
-    });
+        dll.pop(2)
+        expect(dll.length).toBe(4)
+        expect(dll.tail?.data).toBe(2)
+    })
 
     it('should shift correctly', () => {
-        dll.shift();
-        expect(dll.length).toBe(6);
-        expect(dll.head?.data).toBe(32);
+        dll.shift()
+        expect(dll.length).toBe(6)
+        expect(dll.head?.data).toBe(32)
 
-        dll.shift(2);
-        expect(dll.length).toBe(4);
-        expect(dll.head?.data).toBe(2);
-    });
-});
+        dll.shift(2)
+        expect(dll.length).toBe(4)
+        expect(dll.head?.data).toBe(2)
+    })
+
+    it('should shift correctly', () => {
+        dll.shift()
+        expect(dll.length).toBe(6)
+        expect(dll.head?.data).toBe(32)
+
+        dll.shift(2)
+        expect(dll.length).toBe(4)
+        expect(dll.head?.data).toBe(2)
+    })
+})

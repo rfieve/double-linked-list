@@ -1,6 +1,6 @@
+import { makeCollectNode } from './collect'
 import { hasNodes } from '../functions/has-nodes'
 import { CompareFunction, DLL, DLLNode } from '../types'
-import { makeCollectNode } from './collect'
 
 export function makeFindManyFromTraversal<T>(
     traverse: (

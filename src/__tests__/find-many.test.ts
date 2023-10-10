@@ -1,5 +1,5 @@
-import { makeCompareUtils } from '../functions/make-compare-utils'
 import { mockedOrderedList } from './_mocks'
+import { makeCompareUtils } from '../functions/make-compare-utils'
 
 describe('findMany', () => {
     const { findMany: bound } = makeCompareUtils((a: number, b: number) =>

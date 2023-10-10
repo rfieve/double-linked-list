@@ -1,6 +1,6 @@
+import { compare } from './_mocks'
 import { makeRemove } from '../functions/remove'
 import { DLLNode, DLLWithNodes } from '../types'
-import { compare } from './_mocks'
 
 describe('remove', () => {
     let prev: DLLNode<number>,

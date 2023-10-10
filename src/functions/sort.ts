@@ -1,6 +1,6 @@
-import { CompareFunction, DLL } from '../types'
 import { toArrayInOrder } from './to-array'
 import { toDLL } from './to-doubly-linked-list'
+import { CompareFunction, DLL } from '../types'
 
 /**
  * Sorts a double linked list and returns it without modifing the provided one.

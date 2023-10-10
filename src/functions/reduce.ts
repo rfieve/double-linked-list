@@ -1,5 +1,5 @@
-import { DLL, DLLNode, ReduceFunction } from '../types'
 import { traverseInOrder } from './traverse-in-order'
+import { DLL, DLLNode, ReduceFunction } from '../types'
 
 /**
  * Reduces the dll nodes with transformation.

@@ -1,6 +1,6 @@
+import { mockedOrderedList } from './_mocks'
 import { makeCompareUtils } from '../functions/make-compare-utils'
 import { makeEmptyDLL } from '../helpers/make-dll'
-import { mockedOrderedList } from './_mocks'
 
 describe('findOne', () => {
     const { findOne: bound } = makeCompareUtils((a: number, b: number) =>

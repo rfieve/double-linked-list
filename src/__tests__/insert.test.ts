@@ -1,8 +1,8 @@
+import { compare } from './_mocks'
 import { insert, makeInsert } from '../functions/insert'
 import { toArrayInOrder } from '../functions/to-array'
 import { makeEmptyDLL } from '../helpers/make-dll'
 import { DLL, DLLNode, DLLWithNodes } from '../types'
-import { compare } from './_mocks'
 
 describe('insert', () => {
     let prev: DLLNode<number>,

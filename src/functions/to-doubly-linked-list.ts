@@ -1,7 +1,7 @@
-import { makeEmptyDLL, makeOneNodeDLL, makeTwoNodesDLL } from '../helpers/make-dll'
-import { CompareFunction } from '../types'
 import { insert } from './insert'
 import { push } from './push'
+import { makeEmptyDLL, makeOneNodeDLL, makeTwoNodesDLL } from '../helpers/make-dll'
+import { CompareFunction } from '../types'
 
 /**
  * Converts the given array to a doubly linked list, depending on a given compare function.

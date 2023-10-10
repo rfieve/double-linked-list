@@ -1,5 +1,5 @@
-import { hasPrev } from '../functions/has-prev'
 import { mockedOrderedList } from './_mocks'
+import { hasPrev } from '../functions/has-prev'
 
 describe('hasPrev', () => {
     it('should return true when the given node has prev', () => {

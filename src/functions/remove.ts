@@ -1,5 +1,5 @@
-import { CompareFunction, DLL, DLLNode, DLLNodeWithNext, DLLNodeWithPrev } from '../types'
 import { findOne } from './find-one'
+import { CompareFunction, DLL, DLLNode, DLLNodeWithNext, DLLNodeWithPrev } from '../types'
 
 function removeElement<T>(dll: DLL<T>, element: T, compare: CompareFunction<T>, from?: DLLNode<T>) {
     const target = findOne(dll, compare, element, from)

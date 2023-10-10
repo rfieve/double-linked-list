@@ -1,6 +1,6 @@
-import { CompareFunction, DLL, DLLNode } from '../types'
 import { hasNext } from './has-next'
 import { hasNodes } from './has-nodes'
+import { CompareFunction, DLL, DLLNode } from '../types'
 
 /**
  * Finds a given element into the given doubly linked list with the given compare function.

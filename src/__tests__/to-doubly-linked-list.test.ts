@@ -1,6 +1,6 @@
+import { compare, mockedArray } from './_mocks'
 import { makeToDLL, toDLL } from '../functions/to-doubly-linked-list'
 import { DLLWithNodes } from '../types'
-import { compare, mockedArray } from './_mocks'
 
 describe('toDLL', () => {
     const bound = makeToDLL(compare)

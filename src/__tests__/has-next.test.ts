@@ -1,5 +1,5 @@
-import { hasNext } from '../functions/has-next'
 import { mockedOrderedList } from './_mocks'
+import { hasNext } from '../functions/has-next'
 
 describe('hasNext', () => {
     it('should return true when the given node has next', () => {

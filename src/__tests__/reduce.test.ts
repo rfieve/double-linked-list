@@ -1,7 +1,7 @@
+import { mockedArray } from './_mocks'
 import { reduce } from '../functions/reduce'
 import { toDLL } from '../functions/to-doubly-linked-list'
 import { DLLNode, ReduceFunction } from '../types'
-import { mockedArray } from './_mocks'
 
 const reducer: ReduceFunction<number, string> = (
     acc: string,

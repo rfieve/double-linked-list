@@ -1,10 +1,10 @@
+import { mapToString, mockedArrayInOrder, mockedOrderedList } from './_mocks'
 import {
     toArrayInOrder,
     toArrayInOrderReverse,
     toArrayMapInOrder,
     toArrayMapInOrderReverse,
 } from '../functions/to-array'
-import { mapToString, mockedArrayInOrder, mockedOrderedList } from './_mocks'
 
 describe('toArrayInOrder', () => {
     it('should convert dll to an array correctly', () => {

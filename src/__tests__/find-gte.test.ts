@@ -1,5 +1,5 @@
-import { makeFindGte } from '../functions/find-gte'
 import { compare, mockedOrderedList } from './_mocks'
+import { makeFindGte } from '../functions/find-gte'
 
 describe('findGte', () => {
     const bound = makeFindGte(compare)

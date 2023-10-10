@@ -1,5 +1,5 @@
-import { makeFindLte } from '../functions/find-lte'
 import { compare, mockedOrderedList } from './_mocks'
+import { makeFindLte } from '../functions/find-lte'
 
 describe('findLte', () => {
     const bound = makeFindLte(compare)

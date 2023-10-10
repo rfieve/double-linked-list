@@ -1,8 +1,8 @@
-import { CompareFunction, DLL, DLLNode, DLLWithNodes } from '../types'
 import { attachNext, attachPrev } from './attach'
 import { findNextGte } from './find-next-gte'
 import { hasNodes } from './has-nodes'
 import { toDLL } from './to-doubly-linked-list'
+import { CompareFunction, DLL, DLLNode, DLLWithNodes } from '../types'
 
 function insertElement<T>(
     dll: DLLWithNodes<T>,

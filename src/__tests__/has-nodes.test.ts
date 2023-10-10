@@ -1,6 +1,6 @@
+import { mockedOrderedList } from './_mocks'
 import { hasNodes } from '../functions/has-nodes'
 import { toDLL } from '../functions/to-doubly-linked-list'
-import { mockedOrderedList } from './_mocks'
 
 describe('hasNodes', () => {
     it('should return true when the given dll has nodes', () => {

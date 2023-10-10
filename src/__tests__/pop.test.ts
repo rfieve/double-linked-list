@@ -1,8 +1,8 @@
+import { mockedArray } from './_mocks'
 import { pop } from '../functions/pop'
 import { toDLL } from '../functions/to-doubly-linked-list'
 import { makeEmptyDLL } from '../helpers/make-dll'
 import { DLL, DLLWithNodes } from '../types'
-import { mockedArray } from './_mocks'
 
 describe('pop', () => {
     it('should pop a dll correctly', () => {

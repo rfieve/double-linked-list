@@ -1,5 +1,5 @@
-import { findNextGte } from '../functions/find-next-gte'
 import { compare, mockedOrderedList } from './_mocks'
+import { findNextGte } from '../functions/find-next-gte'
 
 describe('findNextGte', () => {
     it('should return the next greater node', () => {

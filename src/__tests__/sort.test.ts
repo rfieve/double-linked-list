@@ -1,6 +1,6 @@
+import { compare, mockedArray, mockedOrderedList } from './_mocks'
 import { makeSort } from '../functions/sort'
 import { toDLL } from '../functions/to-doubly-linked-list'
-import { compare, mockedArray, mockedOrderedList } from './_mocks'
 
 describe('sort', () => {
     const bound = makeSort(compare)

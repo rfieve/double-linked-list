@@ -1,4 +1,3 @@
-import { DoublyLinkedList } from '../classes/doubly-linked-list'
 import {
     compare,
     mapToString,
@@ -7,6 +6,7 @@ import {
     mockedOrderedList,
     mockedUnorderedList,
 } from './_mocks'
+import { DoublyLinkedList } from '../classes/doubly-linked-list'
 
 describe('attach', () => {
     let dll: DoublyLinkedList<number>

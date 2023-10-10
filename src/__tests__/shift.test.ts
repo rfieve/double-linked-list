@@ -1,8 +1,8 @@
+import { mockedArray } from './_mocks'
 import { shift } from '../functions/shift'
 import { toDLL } from '../functions/to-doubly-linked-list'
 import { makeEmptyDLL } from '../helpers/make-dll'
 import { DLL, DLLWithNodes } from '../types'
-import { mockedArray } from './_mocks'
 
 describe('shift', () => {
     it('should shift a dll correctly', () => {

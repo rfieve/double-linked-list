@@ -1,6 +1,6 @@
-import { DLL, MapFunction } from '../types'
 import { toArrayMapInOrder } from './to-array'
 import { toDLL } from './to-doubly-linked-list'
+import { DLL, MapFunction } from '../types'
 
 /**
  * Reduces the dll nodes with transformation.

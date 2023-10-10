@@ -1,4 +1,3 @@
-import { CompareFunction } from '../types'
 import { makeFindGt } from './find-gt'
 import { makeFindGte } from './find-gte'
 import { makeFindLt } from './find-lt'
@@ -9,6 +8,7 @@ import { makeInsert } from './insert'
 import { makeRemove } from './remove'
 import { makeSort } from './sort'
 import { makeToDLL } from './to-doubly-linked-list'
+import { CompareFunction } from '../types'
 
 /**
  * With the given compare function, creates all bound functions to work with a doubly linked list made with the same compare.

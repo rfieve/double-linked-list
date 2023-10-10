@@ -1,7 +1,7 @@
-import { DLL, DLLWithNodes } from '../types'
 import { attachPrev } from './attach'
 import { hasNodes } from './has-nodes'
 import { toDLL } from './to-doubly-linked-list'
+import { DLL, DLLWithNodes } from '../types'
 
 function unshiftElement<T>(dll: DLLWithNodes<T>, element: T) {
     dll.length++

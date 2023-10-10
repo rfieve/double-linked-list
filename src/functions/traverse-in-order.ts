@@ -1,6 +1,6 @@
-import { Direction, DLL, TraverseCallback } from '../types'
 import { hasNodes } from './has-nodes'
 import { traverseFrom } from './traverse-from'
+import { Direction, DLL, TraverseCallback } from '../types'
 
 /**
  * Traverses the doubly linked list in order (head to tail),

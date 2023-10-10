@@ -1,7 +1,7 @@
+import { mapToString, mockedArray } from './_mocks'
 import { map } from '../functions/map'
 import { toArrayInOrder } from '../functions/to-array'
 import { toDLL } from '../functions/to-doubly-linked-list'
-import { mapToString, mockedArray } from './_mocks'
 
 describe('map', () => {
     it('should map a dll correctly', () => {

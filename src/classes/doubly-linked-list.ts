@@ -45,122 +45,136 @@ export class DoublyLinkedList<T> {
     public get dll() {
         return this.l
     }
+
     public get length() {
         return this.l.length
     }
+
     public get head() {
         return this.l.head
     }
+
     public get tail() {
         return this.l.tail
     }
 
-    public static fromArray = <K>(elements: K[]) => {
+    public static fromArray<K>(elements: K[]) {
         const dll = new DoublyLinkedList<K>()
         dll.l = toDLL(elements)
         return dll
     }
 
     // Updates
-    public readonly push = (elements: T | T[]) => {
+    public push(elements: T | T[]) {
         this.l = pushNode(this.l, elements)
         return this
     }
 
-    public readonly unshift = (elements: T | T[]) => {
+    public unshift(elements: T | T[]) {
         this.l = unshiftNode(this.l, elements)
         return this
     }
 
-    public readonly insert = (
-        elements: T | T[],
-        compare?: CompareFunction<T>,
-        from?: DLLNode<T>
-    ) => {
+    public insert(elements: T | T[], compare?: CompareFunction<T>, from?: DLLNode<T>) {
         this.l = insertNode(this.l, elements, compare || this.compare, from)
         return this
     }
 
-    public pop = (amount = 1) => {
+    public pop(amount = 1) {
         this.l = popNode(this.l, amount)
         return this
     }
 
-    public shift = (amount = 1) => {
+    public shift(amount = 1) {
         this.l = shiftNode(this.l, amount)
         return this
     }
 
-    public readonly remove = (elements: T | T[], compare?: CompareFunction<T>) => {
+    public remove(elements: T | T[], compare?: CompareFunction<T>) {
         this.l = removeNode(this.l, elements, compare || this.compare)
         return this
     }
 
-    public readonly sort = (compare?: CompareFunction<T>) => {
+    public sort(compare?: CompareFunction<T>) {
         this.compare = compare || this.compare
         this.l = sortNodes(this.l, this.compare)
         return this
     }
 
     // Traversals
-    public readonly traverseFrom = (
-        node: DLLNode<T>,
-        direction: Direction,
-        cb: (node: DLLNode<T>) => void
-    ) => {
+    public traverseFrom(node: DLLNode<T>, direction: Direction, cb: (node: DLLNode<T>) => void) {
         traverseListFrom(node, direction, cb)
         return this
     }
 
-    public readonly traverseInOrder = (cb: (node: DLLNode<T>) => void) => {
+    public traverseInOrder(cb: (node: DLLNode<T>) => void) {
         traverseListInOrder(this.l, cb)
         return this
     }
 
-    public readonly traverseInOrderReverse = (cb: (node: DLLNode<T>) => void) => {
+    public traverseInOrderReverse(cb: (node: DLLNode<T>) => void) {
         traverseListInOrderReverse(this.l, cb)
         return this
     }
 
     // Conversions
-    public readonly toArrayInOrder = () => toArrayListInOrder(this.l)
+    public toArrayInOrder() {
+        return toArrayListInOrder(this.l)
+    }
 
-    public readonly toArrayInOrderReverse = () => toArrayListInOrderReverse(this.l)
+    public toArrayInOrderReverse() {
+        return toArrayListInOrderReverse(this.l)
+    }
 
-    public readonly toArrayMapInOrder = <U>(mapper: MapFunction<T, U>) =>
-        toArrayListMapInOrder(this.l, mapper)
+    public toArrayMapInOrder<U>(mapper: MapFunction<T, U>) {
+        return toArrayListMapInOrder(this.l, mapper)
+    }
 
-    public readonly toArrayMapInOrderReverse = <U>(mapper: MapFunction<T, U>) =>
-        toArrayListMapInOrderReverse(this.l, mapper)
+    public toArrayMapInOrderReverse<U>(mapper: MapFunction<T, U>) {
+        return toArrayListMapInOrderReverse(this.l, mapper)
+    }
 
-    public readonly reduce = <U>(reducer: ReduceFunction<T, U>, init: U) =>
-        reduceNodes(this.l, reducer, init)
+    public reduce<U>(reducer: ReduceFunction<T, U>, init: U) {
+        return reduceNodes(this.l, reducer, init)
+    }
 
     // Assessments
-    public readonly hasNodes = () => hasNodesList(this.l)
+    public hasNodes() {
+        return hasNodesList(this.l)
+    }
 
-    public readonly hasPrev = (element: T) => {
+    public hasPrev(element: T) {
         const node = findOneNode(this.l, this.compare, element)
         return node && hasPrevNode(node)
     }
 
-    public readonly hasNext = (element: T) => {
+    public hasNext(element: T) {
         const node = findOneNode(this.l, this.compare, element)
         return node && hasNextNode(node)
     }
 
     // Finders
-    public readonly findOne = (element: T, compare?: CompareFunction<T>) =>
-        findOneNode(this.l, compare || this.compare, element)
+    public findOne(element: T, compare?: CompareFunction<T>) {
+        return findOneNode(this.l, compare || this.compare, element)
+    }
 
-    public readonly findMany = (element: T, compare?: CompareFunction<T>) =>
-        findManyNodes(this.l, compare || this.compare, element)
+    public findMany(element: T, compare?: CompareFunction<T>) {
+        return findManyNodes(this.l, compare || this.compare, element)
+    }
 
-    public readonly findGt = (element: T) => findGtNode(this.l, this.compare, element)
+    public findGt(element: T) {
+        return findGtNode(this.l, this.compare, element)
+    }
 
-    public readonly findGte = (element: T) => findGteNode(this.l, this.compare, element)
+    public findGte(element: T) {
+        return findGteNode(this.l, this.compare, element)
+    }
 
-    public readonly findLt = (element: T) => findLtNode(this.l, this.compare, element)
+    public findLt(element: T) {
+        return findLtNode(this.l, this.compare, element)
+    }
 
-    public readonly findLte = (element: T) => findLteNode(this.l, this.compare, element)
+    public findLte(element: T) {
+        return findLteNode(this.l, this.compare, element)
+    }
 }
